@@ -1,0 +1,8 @@
+.container {
+  table-layout: auto;
+  width: 100%;
+  border: 5px solid white;
+}
+.table {
+  border: 2px solid red;
+}
