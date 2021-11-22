@@ -1,19 +1,21 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .AppHeader {
-  background-color: #282c34;
+  background: linear-gradient(to bottom, rgb(29, 29, 78), rgb(208, 201, 226));
   min-height: 100vh;
-  min-width: 100vw;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: left;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 20px;
 }
 
 .p {
+  text-align: center;
   font-size: xx-large;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;

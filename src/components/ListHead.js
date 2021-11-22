@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import classes from "./ListHead.module.css";
 import Value from "./Value";
 
@@ -6,9 +7,9 @@ const ListHead = (props) => {
     <table className={classes.container}>
       <thead>
         <tr className={classes.table}>
-          <th>Datum</th>
-          <th>Art</th>
-          <th>Wert</th>
+          <th>Date</th>
+          <th>Type</th>
+          <th>Value</th>
         </tr>
       </thead>
       <Value />
