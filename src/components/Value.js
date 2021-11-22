@@ -1,4 +1,3 @@
-import react, { useState } from "react";
 import classes from "./Value.module.css";
 
 const Value = (props) => {
@@ -34,7 +33,7 @@ const Value = (props) => {
   ];
 
   return (
-    <tbody className={classes.container}>
+    <body className={classes.container}>
       <select value={props.selected} className={classes.selector}>
         {" "}
         <option></option>
@@ -45,12 +44,13 @@ const Value = (props) => {
 
       {readings.map((reading) => (
         <tr className={classes.tr} key={reading.id}>
+          
           <td className={classes.td}>{reading.date}</td>
           <td className={classes.td}>{reading.type}</td>
           <td className={classes.td}>{reading.value}</td>
         </tr>
       ))}
-    </tbody>
+    </body>
   );
 };
 
