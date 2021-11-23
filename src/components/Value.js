@@ -6,6 +6,7 @@ const [filter, setFilter] = useState("")
 
   const date = new Date(Date.UTC(2021, 1, 10));
   const date2 = new Date(Date.UTC(2021, 2, 28));
+  const date3 = new Date(Date.UTC(2021, 5, 10 ))
 
   const readings = [
     {
@@ -25,7 +26,7 @@ const [filter, setFilter] = useState("")
       id: Math.random().toString(),
     },
     {
-      date: new Intl.DateTimeFormat().format(date),
+      date: new Intl.DateTimeFormat().format(date3),
       type: "Gas",
       value:
         new Intl.NumberFormat("de-DE", {
@@ -38,7 +39,7 @@ const [filter, setFilter] = useState("")
   const filteredReadings = readings.filter((reading) => 
         reading.type === filter || filter === "" 
   )
-
+const sortReadings = filteredReadings.sort((date, date2, date3) => date - date2 - date3)
 
   return (
     <tbody className={classes.container}>
@@ -49,7 +50,7 @@ const [filter, setFilter] = useState("")
         <option value="Water">Water</option>
         <option value="Gas">Gas</option>
       </select>
-      {filteredReadings.map((reading) => (
+      {sortReadings.map((reading) => (
         <tr className={classes.tr} key={reading.id}>
           <td className={classes.td}>{reading.date}</td>
           <td className={classes.td}>{reading.type}</td>
