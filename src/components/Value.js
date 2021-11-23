@@ -1,13 +1,16 @@
+import { useState } from "react";
 import classes from "./Value.module.css";
 
 const Value = (props) => {
+const [filter, setFilter] = useState("")
+
   const date = new Date(Date.UTC(2021, 1, 10));
   const date2 = new Date(Date.UTC(2021, 2, 28));
 
   const readings = [
     {
       date: new Intl.DateTimeFormat().format(date),
-      type: "Current",
+      type: "Electricity",
       value:
         new Intl.NumberFormat("de-DE", {
           style: "decimal",
@@ -27,30 +30,33 @@ const Value = (props) => {
       value:
         new Intl.NumberFormat("de-DE", {
           style: "decimal",
-        }).format(100) + " kWh/m3",
+        }).format(100) + " m3",
       id: Math.random().toString(),
     },
   ];
 
+  const filteredReadings = readings.filter((reading) => 
+        reading.type === filter || filter === "" 
+  )
+
+
   return (
-    <body className={classes.container}>
-      <select value={props.selected} className={classes.selector}>
+    <tbody className={classes.container}>
+      <select className={classes.selector} onChange={(e)=>setFilter(e.target.value)}>
         {" "}
         <option></option>
-        <option value="Strom">Current</option>
-        <option value="Wasser">Water</option>
+        <option value="Electricity">Electricity</option>
+        <option value="Water">Water</option>
         <option value="Gas">Gas</option>
       </select>
-
-      {readings.map((reading) => (
+      {filteredReadings.map((reading) => (
         <tr className={classes.tr} key={reading.id}>
-          
           <td className={classes.td}>{reading.date}</td>
           <td className={classes.td}>{reading.type}</td>
           <td className={classes.td}>{reading.value}</td>
         </tr>
       ))}
-    </body>
+    </tbody>
   );
 };
 
