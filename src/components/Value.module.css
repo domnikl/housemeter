@@ -1,27 +1,26 @@
 .container {
   table-layout: auto;
   width: 100%;
-  border: 3px solid white;
+  border: 3px solid p;
 }
 
 .td {
   border: 2px solid white;
   border-radius: 10px;
-}
+  background-color: thistle;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.473);}
 
 .selector {
+  background: thistle;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   font-size: calc(5px + 2vmin);
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
   border: none;
   font-family: sans-serif;
-  background-image: linear-gradient(rgb(29, 29, 78), rgb(201, 213, 224));
   background-repeat: no-repeat;
   background-position: right;
   border-radius: 10px;
-  color: rgb(243, 237, 237);
+  color: rgb(17, 16, 16);
   padding: 3px 32px 3px 12px;
-  border: 2px solid silver;
+  border: 2px solid grey;
   outline: none;
 }

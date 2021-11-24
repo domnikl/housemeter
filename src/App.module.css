@@ -3,14 +3,14 @@
 }
 
 .AppHeader {
-  background: linear-gradient(to bottom, rgb(29, 29, 78), rgb(208, 201, 226));
+  background: transparent;
   min-height: 100vh;
 
   display: flex;
   flex-direction: column;
   justify-content: left;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(15, 13, 13);
   padding: 20px;
 }
 
