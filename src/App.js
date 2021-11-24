@@ -1,16 +1,16 @@
-import ListHead from "./components/ListHead";
+import ListTable from "./components/ListTable";
 import classes from "./App.module.css";
-import backgroundImage from './img/Colorful-Watercolor-Background-Graphics-8158369-1.jpg'
+// import backgroundImage from './img/Colorful-Watercolor-Background-Graphics-8158369-1.jpg'
+
 
 function App() {
   return (
-    <div style={{ backgroundImage: `url(${backgroundImage})` }}>
-    <div className={classes.App}>
+    <div className={classes.container}>
       <header className={classes.AppHeader}>
-        <p className={classes.p}>Housemeter</p>
-        <ListHead />
+        <p className={classes.AppName}>Housemeter</p>
       </header>
-    </div>
+      <ListTable />
+      {/* <div style={{ backgroundImage: `url(${backgroundImage})` }}></div> */}
     </div>
   );
 }

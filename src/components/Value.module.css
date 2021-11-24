@@ -1,26 +1,23 @@
 .container {
-  table-layout: auto;
   width: 100%;
-  border: 3px solid p;
+  border: 3px solid;
 }
 
 .td {
-  border: 2px solid white;
-  border-radius: 10px;
   background-color: thistle;
-  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.473);}
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
+}
 
 .selector {
   background: thistle;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   font-size: calc(5px + 2vmin);
-  border: none;
   font-family: sans-serif;
-  background-repeat: no-repeat;
-  background-position: right;
-  border-radius: 10px;
+  border-radius: 8px;
   color: rgb(17, 16, 16);
-  padding: 3px 32px 3px 12px;
-  border: 2px solid grey;
   outline: none;
+}
+
+tr {
+  border: 5px solid red;
 }

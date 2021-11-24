@@ -13,7 +13,7 @@ const [filter, setFilter] = useState("")
       date: new Intl.DateTimeFormat().format(date),
       type: "Electricity",
       value:
-        new Intl.NumberFormat("de-DE", {
+        new Intl.NumberFormat({
           style: "decimal",
         }).format(100) + " kWh",
       id: Math.random().toString(),
@@ -22,14 +22,14 @@ const [filter, setFilter] = useState("")
       date: new Intl.DateTimeFormat().format(date2),
       type: "Water",
       value:
-        new Intl.NumberFormat("de-DE", { style: "decimal" }).format(11) + " m3",
+        new Intl.NumberFormat({ style: "decimal" }).format(11) + " m3",
       id: Math.random().toString(),
     },
     {
       date: new Intl.DateTimeFormat().format(date3),
       type: "Gas",
       value:
-        new Intl.NumberFormat("de-DE", {
+        new Intl.NumberFormat( {
           style: "decimal",
         }).format(100) + " m3",
       id: Math.random().toString(),
@@ -51,7 +51,7 @@ const sortReadings = filteredReadings.sort((date, date2, date3) => date - date2 
         <option value="Gas">Gas</option>
       </select>
       {sortReadings.map((reading) => (
-        <tr className={classes.tr} key={reading.id}>
+        <tr key={reading.id}>
           <td className={classes.td}>{reading.date}</td>
           <td className={classes.td}>{reading.type}</td>
           <td className={classes.td}>{reading.value}</td>

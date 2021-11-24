@@ -3,20 +3,24 @@
 }
 
 .AppHeader {
+  padding: 50px;
   background: transparent;
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
   justify-content: left;
   font-size: calc(10px + 2vmin);
   color: rgb(15, 13, 13);
-  padding: 20px;
 }
 
-.p {
+.AppName {
+  margin: 0px;
+  padding: 0px;
   text-align: center;
   font-size: xx-large;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.container {
+  background-image: url(./img/Colorful-Watercolor-Background-Graphics-8158369-1.jpg);
+  height: 1050px;
+  background-position: top;
 }

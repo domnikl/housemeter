@@ -1,12 +1,8 @@
 .container {
-  table-layout: auto;
   width: 100%;
-  border: 1px solid rgb(99, 90, 94);
+  border: 2px solid rgb(99, 90, 94);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.445);
   background-color: rgba(128, 128, 128, 0.527);
-
   border-radius: 5px;
-}
-.table {
-  border: 2px solid red;
+  padding: 5px 10px 60px 10px;
 }

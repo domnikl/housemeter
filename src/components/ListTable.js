@@ -1,12 +1,12 @@
 
-import classes from "./ListHead.module.css";
+import classes from "./ListTable.module.css";
 import Value from "./Value";
 
-const ListHead = (props) => {
+const ListTable = (props) => {
   return (
     <table className={classes.container}>
-      <thead>
-        <tr className={classes.table}>
+      <thead >
+        <tr>
           <th>Date</th>
           <th>Type</th>
           <th>Value</th>
@@ -17,4 +17,4 @@ const ListHead = (props) => {
   );
 };
 
-export default ListHead;
+export default ListTable;
