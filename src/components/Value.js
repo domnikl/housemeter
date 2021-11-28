@@ -2,15 +2,11 @@ import { useState } from "react";
 import classes from "./Value.module.css";
 
 const Value = (props) => {
-const [filter, setFilter] = useState("")
-
-  const date = new Date(Date.UTC(2021, 1, 10));
-  const date2 = new Date(Date.UTC(2021, 2, 28));
-  const date3 = new Date(Date.UTC(2021, 5, 10 ))
+  const [filter, setFilter] = useState("");
 
   const readings = [
     {
-      date: new Intl.DateTimeFormat().format(date),
+      date: new Date("2021-01-10"),
       type: "Electricity",
       value:
         new Intl.NumberFormat({
@@ -19,31 +15,40 @@ const [filter, setFilter] = useState("")
       id: Math.random().toString(),
     },
     {
-      date: new Intl.DateTimeFormat().format(date2),
+      date: new Date("2021-02-28"),
       type: "Water",
-      value:
-        new Intl.NumberFormat({ style: "decimal" }).format(11) + " m3",
+      value: new Intl.NumberFormat({ style: "decimal" }).format(11) + " m3",
       id: Math.random().toString(),
     },
     {
-      date: new Intl.DateTimeFormat().format(date3),
+      date: new Date("2021-05-10"),
       type: "Gas",
       value:
-        new Intl.NumberFormat( {
+        new Intl.NumberFormat({
           style: "decimal",
         }).format(100) + " m3",
       id: Math.random().toString(),
     },
   ];
 
-  const filteredReadings = readings.filter((reading) => 
-        reading.type === filter || filter === "" 
-  )
-const sortReadings = filteredReadings.sort((date, date2, date3) => date - date2 - date3)
+  const filteredReadings = readings.filter(
+    (reading) => reading.type === filter || filter === ""
+  );
+
+  const sortReadings = filteredReadings.sort((a, b) => b.date - a.date);
+
+  // const sortReadings = filteredReadings.sort((a, b) => {
+  //   if (a.date === b.date) return 0;
+  //   else if (a.date < b.date) return 1;
+  //   else return -1;
+  // });
 
   return (
     <tbody className={classes.container}>
-      <select className={classes.selector} onChange={(e)=>setFilter(e.target.value)}>
+      <select
+        className={classes.selector}
+        onChange={(e) => setFilter(e.target.value)}
+      >
         {" "}
         <option></option>
         <option value="Electricity">Electricity</option>
@@ -52,7 +57,9 @@ const sortReadings = filteredReadings.sort((date, date2, date3) => date - date2 
       </select>
       {sortReadings.map((reading) => (
         <tr key={reading.id}>
-          <td className={classes.td}>{reading.date}</td>
+          <td className={classes.td}>
+            {new Intl.DateTimeFormat().format(reading.date)}
+          </td>
           <td className={classes.td}>{reading.type}</td>
           <td className={classes.td}>{reading.value}</td>
         </tr>

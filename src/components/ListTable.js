@@ -5,7 +5,7 @@ import Value from "./Value";
 const ListTable = (props) => {
   return (
     <table className={classes.container}>
-      <thead >
+      <thead>
         <tr>
           <th>Date</th>
           <th>Type</th>
