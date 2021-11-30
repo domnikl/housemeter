@@ -1,5 +1,7 @@
 import { useState } from "react";
 import classes from "./Value.module.css";
+import SelectMenu from "./SelectMenu";
+import React from "react";
 
 const Value = (props) => {
   const [filter, setFilter] = useState("");
@@ -8,25 +10,19 @@ const Value = (props) => {
     {
       date: new Date("2021-01-10"),
       type: "Electricity",
-      value:
-        new Intl.NumberFormat({
-          style: "decimal",
-        }).format(100) + " kWh",
+      value: 100,
       id: Math.random().toString(),
     },
     {
       date: new Date("2021-02-28"),
       type: "Water",
-      value: new Intl.NumberFormat({ style: "decimal" }).format(11) + " m3",
+      value: 11,
       id: Math.random().toString(),
     },
     {
       date: new Date("2021-05-10"),
       type: "Gas",
-      value:
-        new Intl.NumberFormat({
-          style: "decimal",
-        }).format(100) + " m3",
+      value: 100,
       id: Math.random().toString(),
     },
   ];
@@ -37,34 +33,43 @@ const Value = (props) => {
 
   const sortReadings = filteredReadings.sort((a, b) => b.date - a.date);
 
-  // const sortReadings = filteredReadings.sort((a, b) => {
-  //   if (a.date === b.date) return 0;
-  //   else if (a.date < b.date) return 1;
-  //   else return -1;
-  // });
+  function renderSwitch(readings) {
+    switch (readings) {
+      case "Electricity":
+        console.log("kWh");
+        break;
+      case "Water":
+        console.log("m3");
+        break;
+      case "Gas":
+        console.log("m3");
+        break;
+      default:
+        console.log("");
+    }
+  }
 
   return (
-    <tbody className={classes.container}>
-      <select
-        className={classes.selector}
-        onChange={(e) => setFilter(e.target.value)}
-      >
-        {" "}
-        <option></option>
-        <option value="Electricity">Electricity</option>
-        <option value="Water">Water</option>
-        <option value="Gas">Gas</option>
-      </select>
-      {sortReadings.map((reading) => (
-        <tr key={reading.id}>
-          <td className={classes.td}>
-            {new Intl.DateTimeFormat().format(reading.date)}
-          </td>
-          <td className={classes.td}>{reading.type}</td>
-          <td className={classes.td}>{reading.value}</td>
-        </tr>
-      ))}
-    </tbody>
+    <React.Fragment>
+      <tbody className={classes.container}>
+        {sortReadings.map((reading) => (
+          <tr key={reading.id}>
+            <td className={classes.td}>
+              {new Intl.DateTimeFormat().format(reading.date)}
+            </td>
+            <td className={classes.td}>
+              {reading.type}
+              {renderSwitch(readings)}
+            </td>
+            <td className={classes.td}>
+              {new Intl.NumberFormat({ style: "decimal" }).format(
+                reading.value
+              )}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </React.Fragment>
   );
 };
 
