@@ -1,0 +1,10 @@
+.selector {
+  background: thistle;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
+  font-size: calc(5px + 2vmin);
+  font-family: sans-serif;
+  border-radius: 8px;
+  color: rgb(17, 16, 16);
+  outline: none;
+  margin: 10px 10px 10px 335px;
+}

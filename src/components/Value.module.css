@@ -4,18 +4,9 @@
 }
 
 .td {
-  background-color: thistle;
+  background-color: rgba(216, 191, 216, 0.377);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   border: 2px whitesmoke;
   border-top: 1px solid rgb(61, 59, 59);
 }
 
-.selector {
-  background: thistle;
-  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
-  font-size: calc(5px + 2vmin);
-  font-family: sans-serif;
-  border-radius: 8px;
-  color: rgb(17, 16, 16);
-  outline: none;
-}
