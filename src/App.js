@@ -1,7 +1,5 @@
 import ListTable from "./components/ListTable";
 import classes from "./App.module.css";
-// import backgroundImage from './img/Colorful-Watercolor-Background-Graphics-8158369-1.jpg'
-
 
 function App() {
   return (
@@ -10,7 +8,6 @@ function App() {
         <p className={classes.AppName}>Housemeter</p>
       </header>
       <ListTable />
-      {/* <div style={{ backgroundImage: `url(${backgroundImage})` }}></div> */}
     </div>
   );
 }
