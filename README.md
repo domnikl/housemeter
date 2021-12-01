@@ -1,6 +1,10 @@
 # housemeter
 
-Housemeter ist ein tool um alle im Haus anfallenden Zählerstände zu archivieren und auszuwerten.
+Housemeter is a tool to archive and evaluate all meter readings in the house.
+
+##How i use housemter
+
+- you can filter the Measurements types with the dropdown.
 
 ## Website
 
