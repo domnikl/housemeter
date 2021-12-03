@@ -21,7 +21,6 @@ function App() {
         <header className={classes.AppHeader}>
           <p className={classes.AppName}>Housemeter</p>
         </header>
-
         <Measurments />
       </div>
     </React.Fragment>

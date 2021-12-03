@@ -3,7 +3,7 @@ import classes from "./Measurements.module.css";
 import MeasurementsHeader from "./MeasurementsHeader ";
 import React from "react";
 
-const Value = (props) => {
+const Measurements = (props) => {
   const [filter, setFilter] = useState("");
 
   const readings = [
@@ -76,4 +76,4 @@ const Value = (props) => {
   );
 };
 
-export default Value;
+export default Measurements;

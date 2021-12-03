@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./MeasurementsHeader.module.css";
 
-const ListTable = (props) => {
+const MeasurementsHeader = (props) => {
   return (
     <React.Fragment>
       {/* <SelectMenu /> */}
@@ -18,4 +18,4 @@ const ListTable = (props) => {
   );
 };
 
-export default ListTable;
+export default MeasurementsHeader;
