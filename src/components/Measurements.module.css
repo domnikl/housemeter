@@ -1,5 +1,6 @@
 .wrappingContainer {
-  width: 100%;
+  background: transparent;
+  width: 110%;
   margin: 50px;
 }
 

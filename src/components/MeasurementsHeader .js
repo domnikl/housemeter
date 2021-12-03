@@ -1,7 +1,5 @@
 import React from "react";
-import classes from "./ListTable.module.css";
-import Value from "./Value";
-// import SelectMenu from "./SelectMenu";
+import classes from "./MeasurementsHeader.module.css";
 
 const ListTable = (props) => {
   return (
@@ -16,7 +14,6 @@ const ListTable = (props) => {
           </tr>
         </thead>
       </table>
-      <Value />
     </React.Fragment>
   );
 };

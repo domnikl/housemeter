@@ -1,6 +1,6 @@
 import { useState } from "react";
-import classes from "./Value.module.css";
-// import SelectMenu from "./SelectMenu";
+import classes from "./Measurements.module.css";
+import MeasurementsHeader from "./MeasurementsHeader ";
 import React from "react";
 
 const Value = (props) => {
@@ -8,19 +8,19 @@ const Value = (props) => {
 
   const readings = [
     {
-      date: new Date("2021-01-10"),
+      date: "2021-01-10",
       type: "Electricity",
       value: 1000,
       id: Math.random().toString(),
     },
     {
-      date: new Date("2021-02-28"),
+      date: "2021-02-28",
       type: "Water",
       value: 11,
       id: Math.random().toString(),
     },
     {
-      date: new Date("2021-05-10"),
+      date: "2021-05-10",
       type: "Gas",
       value: 100,
       id: Math.random().toString(),
@@ -48,6 +48,7 @@ const Value = (props) => {
 
   return (
     <React.Fragment>
+      <MeasurementsHeader />
       <select
         className={classes.meterTypeSelect}
         onChange={(e) => setFilter(e.target.value)}
@@ -63,7 +64,7 @@ const Value = (props) => {
           {sortReadings.map((reading) => (
             <tr key={reading.id} className={classes.tableContainer}>
               <td className={classes.valueTable}>
-                {new Intl.DateTimeFormat().format(reading.date)}
+                {new Intl.DateTimeFormat().format(new Date(reading.date))}
               </td>
               <td className={classes.valueTable}>{reading.type}</td>
               <td className={classes.valueTable}> {formatValue(reading)}</td>
