@@ -1,0 +1,24 @@
+.wrappingContainer {
+  background: transparent;
+  width: 110%;
+  margin: 50px;
+}
+
+.valueTable {
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
+  border-top: 2px solid rgb(61, 59, 59);
+}
+
+.valueTable:hover {
+  background-color: rgba(122, 191, 194, 0.555);
+}
+
+.meterTypeSelect {
+  background: rgba(216, 191, 216, 0.842);
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
+  font-size: calc(5px + 2vmin);
+  font-family: sans-serif;
+  border-radius: 8px;
+  color: rgb(17, 16, 16);
+  margin: 20px 10px 10px 50px;
+}
