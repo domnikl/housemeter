@@ -1,7 +1,6 @@
 import classes from "./App.module.css";
 import React from "react";
 import Measurments from "./components/Measurements";
-import MeasurementsForm from "./components/MeasurementsForm";
 
 function App() {
   return (
@@ -23,7 +22,7 @@ function App() {
         <header className={classes.AppHeader}>
           <p className={classes.AppName}>Housemeter</p>
         </header>
-        <MeasurementsForm />
+
         <Measurments />
       </div>
     </React.Fragment>
