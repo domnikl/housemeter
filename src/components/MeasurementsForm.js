@@ -19,7 +19,7 @@ const MeasurementsForm = (props) => {
   const handleMeasurementChange = (event) => {
     setMeasurementsInput({
       ...measurementsInput,
-      measurement: parseInt(event.target.value),
+      measurement: parseFloat(event.target.value),
       id: Math.random().toString(),
     });
   };
@@ -55,7 +55,8 @@ const MeasurementsForm = (props) => {
         Measurements
         <input
           name="measurementsInput"
-          type="[number]"
+          type="number"
+          step="any"
           onChange={handleMeasurementChange}
           className={classes.measurementsInput}
         ></input>
