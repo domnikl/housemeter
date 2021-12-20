@@ -12,6 +12,7 @@ function App() {
             y1="0"
             x2="1"
             y2="100%"
+            z=
             stroke="#FF4B3B"
             stroke-width="30%"
           />
@@ -21,6 +22,7 @@ function App() {
         <header className={classes.AppHeader}>
           <p className={classes.AppName}>Housemeter</p>
         </header>
+
         <Measurments />
       </div>
     </React.Fragment>
