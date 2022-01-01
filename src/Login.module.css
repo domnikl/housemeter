@@ -1,0 +1,12 @@
+.headlineContainer {
+  text-align: center;
+  font-family: monospace;
+}
+
+.LoginH1 {
+  font-size: 80px;
+}
+
+.LoginButton {
+  margin: 0px 20px 50px 430px;
+}
