@@ -37,8 +37,6 @@ const MeasurementsForm = (props) => {
     props.onAdd(measurementsInput);
   };
 
-  console.log(measurementsInput);
-
   return (
     <form className={classes.inputForm} onSubmit={submitHandler}>
       <label htmlFor="Date">
