@@ -15,14 +15,14 @@ const Login = (props) => {
         <h1 className={classes.LoginH1}>Housemeter</h1>
         <h2>This app makes your meter readings clear.</h2>
         <h3>Please sign in with Discord</h3>
+        <button
+          className={classes.LoginButton}
+          type="button"
+          onClick={signInHandlerWithDiscord}
+        >
+          Discord
+        </button>
       </div>
-      <button
-        className={classes.LoginButton}
-        type="button"
-        onClick={signInHandlerWithDiscord}
-      >
-        Discord
-      </button>
     </React.Fragment>
   );
 };

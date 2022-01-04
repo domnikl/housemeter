@@ -21,12 +21,19 @@ function App() {
     };
   }, []);
 
+  const handleLogout = () => {
+    supabase.auth.signOut().catch(console.error);
+  };
+
   return (
     <React.Fragment>
       {!user ? (
         <Login supabase={supabase} />
       ) : (
         <div className={classes.container}>
+          <button user={user} onLogout={handleLogout}>
+            Sign out
+          </button>
           <header className={classes.AppHeader}>
             <p className={classes.AppName}>Housemeter</p>
           </header>
