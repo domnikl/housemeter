@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./Login.module.css";
 import { supabase } from "./SupabaseClient";
+import Logo from "./img/home--v1.png";
 
 const Login = (props) => {
   async function signInHandlerWithDiscord() {
@@ -13,8 +14,13 @@ const Login = (props) => {
     <React.Fragment>
       <div className={classes.headlineContainer}>
         <h1 className={classes.LoginH1}>Housemeter</h1>
-        <h2>This app makes your meter readings clear.</h2>
-        <h3>Please sign in with Discord</h3>
+        <img src={Logo} alt="Logo" className={classes.logo} />
+        <div className={classes.wrappingTextAndButton}>
+          <h2 className={classes.appText}>
+            This app makes your meter readings clear.
+          </h2>
+          <h3 className={classes.signIn}>Please SignIn with Discord</h3>
+        </div>
         <button
           className={classes.LoginButton}
           type="button"
