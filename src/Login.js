@@ -19,7 +19,7 @@ const Login = (props) => {
           <h2 className={classes.appText}>
             This app makes your meter readings clear.
           </h2>
-          <h3 className={classes.signIn}>Please SignIn with Discord</h3>
+          <h3 className={classes.signIn}>Please sign in with Discord</h3>
         </div>
         <button
           className={classes.LoginButton}
