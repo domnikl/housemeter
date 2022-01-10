@@ -9,13 +9,12 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   color: whitesmoke;
-  background-color: rgba(0, 128, 128, 0.418);
+  background-color: #313035;
 }
 
 .LoginH1 {
   font-size: 80px;
   font-weight: lighter;
-  letter-spacing: 10px;
 }
 
 .logo {
@@ -26,7 +25,7 @@
 }
 
 .wrappingTextAndButton {
-  background-color: rgba(36, 80, 94, 0.801);
+  background-color: #a69f97;
   margin: 8px 120px 50px 120px;
   padding: 70px;
   border-radius: 10px;
@@ -38,8 +37,8 @@
   object-position: center;
   padding: 15px;
   border-radius: 10px;
-  border: 1px solid whitesmoke;
-  background-color: rgba(98, 41, 114, 0.753);
+  background-color: #8c5e4d;
+  border: 1px solid #8c5e4d;
   color: whitesmoke;
   box-shadow: 10px 8px 8px rgba(0, 0, 0, 0.342);
 }

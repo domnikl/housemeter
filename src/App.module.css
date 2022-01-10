@@ -23,12 +23,13 @@
   padding: 0px;
   text-align: center;
   font-size: xx-large;
+  color: #f2f2f2;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .container {
-  background-image: url(./img/Colorful-Watercolor-Background-Graphics-8158369-1.jpg);
+  background-color: #313035;
   height: 1050px;
   background-position: top;
 }
@@ -48,9 +49,9 @@
 }
 
 .logoutbutton {
-  background-color: rgba(224, 115, 224, 0.466);
+  background-color: #488C03;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   color: rgb(0, 0, 0);
-  border: solid grey 1px;
+  border: solid #214001 1px;
   border-radius: 8px;
 }

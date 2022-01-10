@@ -1,5 +1,4 @@
-import classes from "./Measurements.module.css";
-import MeasurementsHeader from "./MeasurementsHeader ";
+import classes from "./MeasurementsTable.module.css";
 import React, { useState } from "react";
 import MeasurementsForm from "./MeasurementsForm";
 
@@ -14,15 +13,15 @@ const Measurements = (props) => {
       id: Math.random().toString(),
     },
     {
-      date: "2021-02-28",
-      type: "Water",
-      measurement: 11,
-      id: Math.random().toString(),
-    },
-    {
       date: "2021-05-10",
       type: "Gas",
       measurement: 100,
+      id: Math.random().toString(),
+    },
+    {
+      date: "2021-02-28",
+      type: "Water",
+      measurement: 11,
       id: Math.random().toString(),
     },
   ];
@@ -33,7 +32,7 @@ const Measurements = (props) => {
     (reading) => reading.type === filter || filter === ""
   );
 
-  const sortReadings = filteredReadings.sort((a, b) => b.date - a.date);
+  const sortReadings = filteredReadings.sort((b, a) => b.date - a.date);
 
   function formatValue(reading) {
     const formattedValue = new Intl.NumberFormat({ style: "number" }).format(
@@ -55,7 +54,6 @@ const Measurements = (props) => {
   return (
     <React.Fragment>
       <MeasurementsForm onAdd={measurementsHandleChange} />
-      <MeasurementsHeader />
       <select
         className={classes.meterTypeSelect}
         onChange={(e) => setFilter(e.target.value)}
@@ -67,6 +65,13 @@ const Measurements = (props) => {
         <option value="Gas">Gas</option>
       </select>
       <table className={classes.wrappingContainer}>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Measurments</th>
+          </tr>
+        </thead>
         <tbody className={classes.bodyContainer}>
           {sortReadings.map((reading) => (
             <tr key={reading.id} className={classes.tableContainer}>

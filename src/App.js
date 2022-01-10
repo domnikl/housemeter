@@ -1,6 +1,6 @@
 import classes from "./App.module.css";
 import React, { useEffect, useState } from "react";
-import Measurments from "./components/Measurements";
+import MeasurmentsTable from "./components/MeasurementsTable";
 import Login from "./Login";
 import { supabase } from "./SupabaseClient";
 
@@ -34,7 +34,7 @@ function App() {
         <div className={classes.container}>
           <button
             user={user}
-            onLogout={handleLogout}
+            onClick={handleLogout}
             className={classes.logoutbutton}
           >
             Sign out
@@ -42,7 +42,7 @@ function App() {
           <header className={classes.AppHeader}>
             <p className={classes.AppName}>Housemeter</p>
           </header>
-          <Measurments />
+          <MeasurmentsTable />
         </div>
       )}
     </React.Fragment>

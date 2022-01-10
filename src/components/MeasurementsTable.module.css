@@ -7,6 +7,7 @@
 .valueTable {
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   border-top: 2px solid rgb(61, 59, 59);
+  background-color: #232226;
 }
 
 .valueTable:hover {
@@ -15,7 +16,7 @@
 
 .meterTypeSelect {
   position: absolute;
-  background: rgba(216, 191, 216, 0.842);
+  background: #a69f97;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   font-family: sans-serif;
   border-radius: 8px;
