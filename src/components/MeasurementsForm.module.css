@@ -1,5 +1,5 @@
 .inputForm {
-  background-color: #a69f97;
+  background-color: #232740;
   margin: 50px;
   border-radius: 10px;
   padding: 50px;
@@ -7,7 +7,7 @@
 
 .measurementsInput {
   border: 10px;
-  background-color: #8c5e4d;
+  background-color: #44428c;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   font-family: sans-serif;
   border-radius: 5px;
@@ -16,7 +16,7 @@
 }
 
 .meterTypeSelect {
-  background-color: #8c5e4d;
+  background-color: #44428c;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   font-family: sans-serif;
   border-radius: 8px;
@@ -25,7 +25,7 @@
 }
 
 .submitButton {
-  background-color: #232226;
+  background-color: #8777f2;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   color: rgb(255, 255, 255);
   border: solid grey 1px;
@@ -33,7 +33,7 @@
 }
 
 .inputDate {
-  background-color: #8c5e4d;
+  background-color: #44428c;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   color: black;
   border: 1px rgba(0, 0, 0, 0.37) solid;

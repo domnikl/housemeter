@@ -5,18 +5,20 @@
 }
 
 .valueTable {
+  padding: 8px;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
-  border-top: 2px solid rgb(61, 59, 59);
-  background-color: #232226;
+  border-top: 2px solid #725ef2;
+  background-color: #232740;
+  border-radius: 5px;
 }
 
 .valueTable:hover {
-  background-color: rgba(122, 191, 194, 0.555);
+  background-color: #8777f2;
 }
 
 .meterTypeSelect {
-  position: absolute;
-  background: #a69f97;
+  position: fixed;
+  background: #8777f2;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   font-family: sans-serif;
   border-radius: 8px;
