@@ -1,5 +1,5 @@
-import React from "react"
+import React from "react";
 
-const MeasurementsTableItem = (props) =>{}
+const MeasurementsTableItem = (props) => {};
 
-export default MeasurementsTableItem
+export default MeasurementsTableItem;
