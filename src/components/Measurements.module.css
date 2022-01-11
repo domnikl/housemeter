@@ -9,7 +9,7 @@
   border-top: 2px solid rgb(61, 59, 59);
 }
 
-.valueTable:hover {
+.tableContainer:hover {
   background-color: rgba(122, 191, 194, 0.555);
 }
 

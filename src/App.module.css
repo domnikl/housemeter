@@ -29,7 +29,8 @@
 
 .container {
   background-image: url(./img/Colorful-Watercolor-Background-Graphics-8158369-1.jpg);
-  height: 1050px;
+  background-size: cover;
+  height: 100vh;
   background-position: top;
 }
 
