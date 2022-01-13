@@ -39,29 +39,32 @@ const MeasurementsForm = (props) => {
 
   return (
     <form className={classes.inputForm} onSubmit={submitHandler}>
-      <label htmlFor="Date">
+      <label htmlFor="Date" className={classes.lable}>
         Date
-        <input
-          type="date"
-          name="date"
-          className={classes.inputDate}
-          onChange={handleDateChange}
-        ></input>{" "}
       </label>
+      <input
+        type="date"
+        name="date"
+        className={classes.inputDate}
+        onChange={handleDateChange}
+      ></input>{" "}
       <br />
-      <label htmlFor="Measurements">
+      <label htmlFor="Measurements" className={classes.lable}>
         Measurements
-        <input
-          name="measurementsInput"
-          type="number"
-          step="any"
-          onChange={handleMeasurementChange}
-          className={classes.measurementsInput}
-        ></input>
       </label>
+      <input
+        name="measurementsInput"
+        type="number"
+        step="any"
+        onChange={handleMeasurementChange}
+        className={classes.measurementsInput}
+      ></input>
       <br />
-      <label htmlFor="Type">
+      <label htmlFor="Type" className={classes.lable}>
         Type{" "}
+      </label>
+      <div className={classes.selectcontainer}>
+        {" "}
         <select
           name="measurmentsType"
           className={classes.meterTypeSelect}
@@ -71,7 +74,7 @@ const MeasurementsForm = (props) => {
           <option value="Water">Water</option>
           <option value="Gas">Gas</option>
         </select>
-      </label>
+      </div>
       <button type="submit" className={classes.submitButton}>
         Submit
       </button>

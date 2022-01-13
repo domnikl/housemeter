@@ -1,8 +1,9 @@
 import classes from "./MeasurementsTable.module.css";
 import React, { useState } from "react";
 import MeasurementsForm from "./MeasurementsForm";
+import MeasurementsTableItem from "./MeasurementsTableItem";
 
-const Measurements = (props) => {
+const MeasurementsTable = (props) => {
   const [filter, setFilter] = useState("");
 
   const readings = [
@@ -34,19 +35,6 @@ const Measurements = (props) => {
 
   const sortReadings = filteredReadings.sort((b, a) => b.date - a.date);
 
-  function formatValue(reading) {
-    const formattedValue = new Intl.NumberFormat({ style: "number" }).format(
-      reading.measurement
-    );
-    if (reading.type === "Electricity") {
-      return formattedValue + " kWh";
-    } else if (reading.type === "Water") {
-      return formattedValue + " m³";
-    } else {
-      return formattedValue + " m³";
-    }
-  }
-
   const measurementsHandleChange = (measurement) => {
     setMeasurmentsList([...measurementsList, measurement]);
   };
@@ -54,39 +42,36 @@ const Measurements = (props) => {
   return (
     <React.Fragment>
       <MeasurementsForm onAdd={measurementsHandleChange} />
-      <select
-        className={classes.meterTypeSelect}
-        onChange={(e) => setFilter(e.target.value)}
-      >
-        {" "}
-        <option></option>
-        <option value="Electricity">Electricity</option>
-        <option value="Water">Water</option>
-        <option value="Gas">Gas</option>
-      </select>
+
       <table className={classes.wrappingContainer}>
         <thead>
-          <tr>
+          <tr className={classes.header}>
             <th>Date</th>
-            <th>Type</th>
-            <th>Measurments</th>
+            <th className={classes.tabletype}>
+              Type{" "}
+              <select
+                className={classes.meterTypeSelect}
+                onChange={(e) => setFilter(e.target.value)}
+              >
+                {" "}
+                <option></option>
+                <option value="Electricity">Electricity</option>
+                <option value="Water">Water</option>
+                <option value="Gas">Gas</option>
+              </select>
+            </th>
+
+            <th className={classes.tablemeasurement}>Measurements</th>
           </tr>
         </thead>
         <tbody className={classes.bodyContainer}>
           {sortReadings.map((reading) => (
-            <tr key={reading.id} className={classes.tableContainer}>
-              <td className={classes.valueTable} key={readings.id}>
-                {new Intl.DateTimeFormat().format(new Date(reading.date))}
-              </td>
-              <td className={classes.valueTable} key={readings.id}>
-                {reading.type}
-              </td>
-              <td className={classes.valueTable} key={readings.id}>
-                {" "}
-                {formatValue(reading)}
-              </td>
-              <td item={measurementsList}></td>
-            </tr>
+            <MeasurementsTableItem
+              item={reading}
+              filter={filteredReadings}
+              key={reading.id}
+              className={classes.tableContainer}
+            />
           ))}
         </tbody>
       </table>
@@ -94,4 +79,4 @@ const Measurements = (props) => {
   );
 };
 
-export default Measurements;
+export default MeasurementsTable;
