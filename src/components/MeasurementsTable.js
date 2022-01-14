@@ -27,7 +27,7 @@ const MeasurementsTable = (props) => {
     },
   ];
 
-  const [measurementsList, setMeasurmentsList] = useState(readings);
+  const [measurementsList, setMeasurementsList] = useState(readings);
 
   const filteredReadings = measurementsList.filter(
     (reading) => reading.type === filter || filter === ""
@@ -36,7 +36,7 @@ const MeasurementsTable = (props) => {
   const sortReadings = filteredReadings.sort((b, a) => b.date - a.date);
 
   const measurementsHandleChange = (measurement) => {
-    setMeasurmentsList([...measurementsList, measurement]);
+    setMeasurementsList([...measurementsList, measurement]);
   };
 
   return (

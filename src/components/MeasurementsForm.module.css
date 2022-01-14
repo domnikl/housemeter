@@ -1,19 +1,16 @@
 .inputForm {
   display: grid;
-  grid-template-columns: ;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  
   background-color: #232740;
   margin: 50px 60px 10px 60px;
   border-radius: 10px;
   padding: 50px;
 }
 
-.lable {
-  padding: 10px;
-  border: 15px;
-}
-
 .measurementsInput {
-  border: 10px;
+  border: 8px;
   background-color: #44428c;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   font-family: sans-serif;
@@ -32,7 +29,6 @@
 }
 
 .submitButton {
-  margin: 20px -200px 0px 200px;
   background-color: #8777f2;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   color: rgb(255, 255, 255);

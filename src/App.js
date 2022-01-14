@@ -1,6 +1,6 @@
 import classes from "./App.module.css";
 import React, { useEffect, useState } from "react";
-import MeasurmentsTable from "./components/MeasurementsTable";
+import MeasurementsTable from "./components/MeasurementsTable";
 import Login from "./Login";
 import { supabase } from "./SupabaseClient";
 
@@ -42,7 +42,7 @@ function App() {
           <header className={classes.AppHeader}>
             <p className={classes.AppName}>Housemeter</p>
           </header>
-          <MeasurmentsTable />
+          <MeasurementsTable />
         </div>
       )}
     </React.Fragment>

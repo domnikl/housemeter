@@ -2,7 +2,6 @@
   margin: 50px 20px 20px 20px;
   border: 5px;
   padding: 30px;
-  background: transparent;
 }
 
 .meterTypeSelect {
@@ -16,10 +15,18 @@
 
 .header {
   display: flex;
+  padding: 10px;
   margin: 0px 0px 0px 20px;
   border: 10px;
   flex-direction: row;
-  flex-wrap: nowrap;
   justify-content: space-between;
   width: 89%;
+}
+
+.tabletype {
+  padding-left: 95px;
+}
+
+.tablemeasurement {
+  padding-right: 40px;
 }
