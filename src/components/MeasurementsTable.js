@@ -33,7 +33,7 @@ const MeasurementsTable = (props) => {
     (reading) => reading.type === filter || filter === ""
   );
 
-  const sortReadings = filteredReadings.sort((a, b) => a.date - b.date);
+  const sortReadings = filteredReadings.sort((a, b) => b.date - a.date);
   console.log(sortReadings);
 
   const measurementsHandleChange = (measurement) => {
