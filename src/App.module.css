@@ -27,7 +27,14 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-@media screen and (min-width: 600px) {
+.container {
+  background-image: url(./img/Colorful-Watercolor-Background-Graphics-8158369-1.jpg);
+  background-size: cover;
+  height: 100vh;
+  background-position: top;
+}
+
+@media screen and (min-width: 200px) {
   .container {
     width: 100%;
   }
