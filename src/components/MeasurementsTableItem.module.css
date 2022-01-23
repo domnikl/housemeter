@@ -1,0 +1,19 @@
+.tabelrow:hover {
+  background-color: #8777f2;
+}
+
+.tabelrow {
+  margin: 0.6em;
+  padding: 20px;
+  display: table;
+  table-layout: fixed;
+  width: 97%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
+  background-color: #232740;
+}
+
+.valueTable {
+  padding: 10px;
+}

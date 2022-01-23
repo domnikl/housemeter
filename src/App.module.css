@@ -2,11 +2,10 @@
   text-align: left;
   font-family: sans-serif;
   width: 70%;
-  margin: 5em auto;
-  @media (min-width: 800px) {
-    width: 65%;
+  @media (min-width: 600px) {
+    width: 50%;
   }
-  @media (min-width: 200px) {
+  @media (min-width: 600px) {
     width: 50%;
   }
 }
@@ -19,16 +18,16 @@
 }
 
 .AppName {
-  margin: 0px;
-  padding: 0px;
+  margin: 5px;
+  padding: 5px;
   text-align: center;
   font-size: xx-large;
+  color: #f2f2f2;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .container {
-  background-image: url(./img/Colorful-Watercolor-Background-Graphics-8158369-1.jpg);
   background-size: cover;
   height: 100vh;
   background-position: top;
@@ -36,14 +35,18 @@
 
 @media screen and (min-width: 200px) {
   .container {
-    float: none;
     width: 100%;
   }
 }
 
-.diagonal-bg {
-  top: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
+.logoutbutton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px;
+  background-color: #725ef2;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
+  color: rgb(255, 255, 255);
+  border: solid #151826 1px;
+  border-radius: 30px;
 }
