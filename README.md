@@ -9,6 +9,10 @@ Housemeter is a tool to archive and evaluate all meter readings in the house.
 - you can filter the measurements types with the dropdown
 - you can add new measurements
 
+## It look like this
+
+![ScreenShot](/screenshot/Housemeter.png)
+
 ## deployment
 
 It builds and runs on Netlify: https://stoic-wozniak-38c319.netlify.app

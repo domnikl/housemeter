@@ -37,12 +37,19 @@ const MeasurementsForm = (props) => {
     props.onAdd(measurementsInput);
   };
 
+  console.log();
+
   return (
-    <form className={classes.inputForm} onSubmit={submitHandler}>
+    <form
+      className={classes.inputForm}
+      onSubmit={submitHandler}
+      data-testid="form"
+    >
       <label htmlFor="Date" className={classes.lable}>
         Date
       </label>
       <input
+        data-testid="inputDate"
         type="date"
         name="date"
         className={classes.inputDate}
@@ -53,6 +60,7 @@ const MeasurementsForm = (props) => {
         Measurements
       </label>
       <input
+        data-testid="inputfieldmeasurement"
         name="measurementsInput"
         type="number"
         step="any"
@@ -60,13 +68,14 @@ const MeasurementsForm = (props) => {
         className={classes.measurementsInput}
       ></input>
       <br />
-      <label htmlFor="Type" className={classes.lable}>
+      <label htmlFor="lableType" className={classes.lable}>
         Type{" "}
       </label>
       <div className={classes.selectcontainer}>
         {" "}
         <select
-          name="measurmentsType"
+          data-testid="selectInputType"
+          name="measurementsType"
           className={classes.meterTypeSelect}
           onChange={handleTypeChange}
         >
