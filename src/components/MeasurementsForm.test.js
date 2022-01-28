@@ -1,10 +1,8 @@
 import MeasurementsForm from "./MeasurementsForm";
-import { screen, render, fireEvent } from "@testing-library/react";
+import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import userEvent from "@testing-library/user-event";
-import { contains } from "update/lib/utils";
 
-//Testen das im Input Feld - Text steht FORM - tobeinthedocument - 1. eigabefeld da ist 2. render Form on Add die aufzeichnet was geadded wude - merken in const - onAddHandler - jest board mittel prüfen
+
 describe("MeasurementsForm component", () => {
   test("whether the input field is there", () => {
     render(<MeasurementsForm />);
@@ -32,16 +30,6 @@ describe("MeasurementsForm component", () => {
     );
     expect(screen.getAllByRole("option", { value: "Gas" }).length).toBe(3);
     expect(screen.getAllByRole("option", { value: "Water" }).length).toBe(3);
-    // const selectEl = screen.getByTestId("selectInputType", { exact: true });
-
-    // expect(selectEl).getByText("Electricity");
-    // expect(selectEl).getByText("Water");
-    // expect(selectEl).getByText("Gas");
-
-    // const inputElType = screen.getByTestId("inputType");
-
-    // expect(inputElType).toBeInstanceOf(HTMLInputElement);
-    // expect(inputElType.value).toBe("");
   });
 
   //   test("inputs will be returned", () => {

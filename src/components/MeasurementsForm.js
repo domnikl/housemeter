@@ -37,8 +37,6 @@ const MeasurementsForm = (props) => {
     props.onAdd(measurementsInput);
   };
 
-  console.log();
-
   return (
     <form
       className={classes.inputForm}
