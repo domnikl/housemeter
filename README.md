@@ -12,7 +12,7 @@ Housemeter is a tool to archive and evaluate all meter readings in the house.
 
 ## It look like this
 
-![preview](Housemeter.png)
+![ScreenShot](/Housemeter.png)
 
 ## deployment
 
