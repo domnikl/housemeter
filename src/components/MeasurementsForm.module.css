@@ -46,3 +46,8 @@
   border-radius: 8px;
   font-family: sans-serif;
 }
+
+.invalid {
+  border-color: red;
+  background: #964141;
+}

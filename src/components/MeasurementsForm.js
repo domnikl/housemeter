@@ -7,6 +7,7 @@ const MeasurementsForm = (props) => {
     type: null,
     measurement: null,
   });
+  const [isValid, setIsValid] = useState(null);
 
   const handleDateChange = (event) => {
     setMeasurementsInput({
@@ -35,6 +36,18 @@ const MeasurementsForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     props.onAdd(measurementsInput);
+    console.log(measurementsInput);
+  };
+
+  const validate = () => {
+    if (measurementsInput.measurement === null) {
+      setIsValid(false);
+      return <alert>Please fill out this field!</alert>;
+    }
+    if (measurementsInput.measurement === !null) {
+      setIsValid(true);
+    }
+    return;
   };
 
   return (
@@ -63,6 +76,7 @@ const MeasurementsForm = (props) => {
         type="number"
         step="any"
         onChange={handleMeasurementChange}
+        onBlur={validate}
         className={classes.measurementsInput}
       ></input>
       <br />
@@ -82,7 +96,10 @@ const MeasurementsForm = (props) => {
           <option value="Gas">Gas</option>
         </select>
       </div>
-      <button type="submit" className={classes.submitButton}>
+      <button
+        type="submit"
+        className={`${classes.submitButton} ${!isValid && classes.invalid}`}
+      >
         Submit
       </button>
     </form>
