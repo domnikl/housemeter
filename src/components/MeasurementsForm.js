@@ -7,7 +7,16 @@ const MeasurementsForm = (props) => {
     type: null,
     measurement: null,
   });
-  const [isValid, setIsValid] = useState(null);
+
+  let measurementsCssClass = classes.measurementsInput;
+
+  if (
+    measurementsInput.measurement != null &&
+    measurementsInput.measurement <= 0
+  ) {
+    measurementsCssClass += " " + classes.invalid;
+  }
+  console.log(measurementsCssClass);
 
   const handleDateChange = (event) => {
     setMeasurementsInput({
@@ -18,9 +27,13 @@ const MeasurementsForm = (props) => {
   };
 
   const handleMeasurementChange = (event) => {
+    let measurementsValue = 0;
+    if (event.target.value !== "") {
+      measurementsValue = parseFloat(event.target.value);
+    }
     setMeasurementsInput({
       ...measurementsInput,
-      measurement: parseFloat(event.target.value),
+      measurement: measurementsValue,
       id: Math.random().toString(),
     });
   };
@@ -39,16 +52,7 @@ const MeasurementsForm = (props) => {
     console.log(measurementsInput);
   };
 
-  const validate = () => {
-    if (measurementsInput.measurement === null) {
-      setIsValid(false);
-      return <alert>Please fill out this field!</alert>;
-    }
-    if (measurementsInput.measurement === !null) {
-      setIsValid(true);
-    }
-    return;
-  };
+  
 
   return (
     <form
@@ -74,10 +78,8 @@ const MeasurementsForm = (props) => {
         data-testid="inputfieldmeasurement"
         name="measurementsInput"
         type="number"
-        step="any"
         onChange={handleMeasurementChange}
-        onBlur={validate}
-        className={classes.measurementsInput}
+        className={measurementsCssClass}
       ></input>
       <br />
       <label htmlFor="lableType" className={classes.lable}>
@@ -96,10 +98,7 @@ const MeasurementsForm = (props) => {
           <option value="Gas">Gas</option>
         </select>
       </div>
-      <button
-        type="submit"
-        className={`${classes.submitButton} ${!isValid && classes.invalid}`}
-      >
+      <button type="submit" className={classes.submitButton}>
         Submit
       </button>
     </form>
