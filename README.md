@@ -16,4 +16,4 @@ Housemeter is a tool to archive and evaluate all meter readings in the house.
 
 ## deployment
 
-It builds and runs on Netlify: https://stoic-wozniak-38c319.netlify.app
+It builds and runs on Netlify: https://houseinstallatioinsinc.netlify.app
