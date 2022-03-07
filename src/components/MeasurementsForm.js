@@ -1,19 +1,18 @@
 import { useState } from "react";
 import classes from "./MeasurementsForm.module.css";
+import { v4 as uuidv4 } from "uuid";
 
 const MeasurementsForm = (props) => {
   const [measurementsInput, setMeasurementsInput] = useState({
     date: null,
     type: null,
-    measurement: null,
+    value: null,
+    id: uuidv4(),
   });
 
-  let measurementsCssClass = classes.measurementsInput;
+  let measurementsCssClass = classes.valueInput;
 
-  if (
-    measurementsInput.measurement != null &&
-    measurementsInput.measurement <= 0
-  ) {
+  if (measurementsInput.value != null && measurementsInput.value <= 0) {
     measurementsCssClass += " " + classes.invalid;
   }
 
@@ -21,7 +20,6 @@ const MeasurementsForm = (props) => {
     setMeasurementsInput({
       ...measurementsInput,
       date: event.target.value,
-      id: Math.random().toString(),
     });
   };
 
@@ -32,8 +30,7 @@ const MeasurementsForm = (props) => {
     }
     setMeasurementsInput({
       ...measurementsInput,
-      measurement: measurementsValue,
-      id: Math.random().toString(),
+      value: measurementsValue,
     });
   };
 
@@ -41,7 +38,6 @@ const MeasurementsForm = (props) => {
     setMeasurementsInput({
       ...measurementsInput,
       type: event.target.value,
-      id: Math.random().toString(),
     });
   };
 
@@ -65,13 +61,14 @@ const MeasurementsForm = (props) => {
         name="date"
         className={classes.inputDate}
         onChange={handleDateChange}
+        key={uuidv4}
       ></input>{" "}
       <br />
-      <label htmlFor="Measurements" className={classes.lable}>
-        Measurements
+      <label htmlFor="value" className={classes.lable}>
+        Measurement
       </label>
       <input
-        data-testid="inputfieldmeasurement"
+        data-testid="inputfieldvalue"
         name="measurementsInput"
         type="number"
         onChange={handleMeasurementChange}

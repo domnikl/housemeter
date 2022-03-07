@@ -3,7 +3,7 @@ import classes from "./MeasurementsTableItem.module.css";
 
 function formatValue(reading) {
   const formattedValue = new Intl.NumberFormat({ style: "number" }).format(
-    reading.measurement
+    reading.value
   );
   if (reading.type === "Electricity") {
     return formattedValue + " kWh";
