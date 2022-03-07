@@ -16,7 +16,6 @@ const MeasurementsForm = (props) => {
   ) {
     measurementsCssClass += " " + classes.invalid;
   }
-  console.log(measurementsCssClass);
 
   const handleDateChange = (event) => {
     setMeasurementsInput({
@@ -49,10 +48,7 @@ const MeasurementsForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     props.onAdd(measurementsInput);
-    console.log(measurementsInput);
   };
-
-  
 
   return (
     <form
