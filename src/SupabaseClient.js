@@ -8,11 +8,9 @@ export async function addReading(measurement) {
   const { data, error } = await supabase
     .from("housemeter")
     .insert([measurement]);
-  console.log(error, data);
 }
 
 export async function getReadings() {
   const { data, error } = await supabase.from("housemeter").select("*");
-  console.log(data, error);
   return data;
 }

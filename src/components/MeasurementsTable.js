@@ -42,7 +42,6 @@ const MeasurementsTable = (props) => {
               <select
                 className={classes.meterTypeSelect}
                 onChange={(e) => setFilter(e.target.value)}
-                key={Number.toString()}
               >
                 {" "}
                 <option></option>
