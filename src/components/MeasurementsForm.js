@@ -8,6 +8,15 @@ const MeasurementsForm = (props) => {
     measurement: null,
   });
 
+  let measurementsCssClass = classes.measurementsInput;
+
+  if (
+    measurementsInput.measurement != null &&
+    measurementsInput.measurement <= 0
+  ) {
+    measurementsCssClass += " " + classes.invalid;
+  }
+
   const handleDateChange = (event) => {
     setMeasurementsInput({
       ...measurementsInput,
@@ -17,9 +26,13 @@ const MeasurementsForm = (props) => {
   };
 
   const handleMeasurementChange = (event) => {
+    let measurementsValue = 0;
+    if (event.target.value !== "") {
+      measurementsValue = parseFloat(event.target.value);
+    }
     setMeasurementsInput({
       ...measurementsInput,
-      measurement: parseFloat(event.target.value),
+      measurement: measurementsValue,
       id: Math.random().toString(),
     });
   };
@@ -61,9 +74,8 @@ const MeasurementsForm = (props) => {
         data-testid="inputfieldmeasurement"
         name="measurementsInput"
         type="number"
-        step="any"
         onChange={handleMeasurementChange}
-        className={classes.measurementsInput}
+        className={measurementsCssClass}
       ></input>
       <br />
       <label htmlFor="lableType" className={classes.lable}>
