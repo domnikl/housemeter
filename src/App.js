@@ -5,7 +5,7 @@ import Login from "./Login";
 import { supabase } from "./SupabaseClient";
 
 function App() {
-  const [user, setUser] = useState("bla");
+  const [user, setUser] = useState("null");
 
   useEffect(() => {
     const session = supabase.auth.session();

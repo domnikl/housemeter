@@ -8,11 +8,11 @@ Housemeter is a tool to archive and evaluate all meter readings in the house.
 
 - you can filter the measurements types with the dropdown
 - you can add new measurements
-- you can filter the mearurementss
+- you can filter the mearurements
 
 ## It look like this
 
-![ScreenShot](/Housemeter.png)
+![preview](/Housemeter.png)
 
 ## deployment
 
