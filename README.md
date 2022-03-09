@@ -9,6 +9,7 @@ Housemeter is a tool to archive and evaluate all meter readings in the house.
 - you can filter the measurements types with the dropdown
 - you can add new measurements
 - you can filter the mearurements
+- your entered data is stored persistently in supabase
 
 ## It look like this
 
