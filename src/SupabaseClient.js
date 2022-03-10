@@ -17,10 +17,3 @@ export async function getReadings() {
   return data;
 }
 
-// export async function deleteData() {
-//   const { data, error } = await supabase
-//     .from("housemeter")
-//     .delete()
-//     .eq("some_column", "someValue");
-//   console.log(data, error);
-// }

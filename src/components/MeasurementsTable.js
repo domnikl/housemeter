@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import MeasurementsForm from "./MeasurementsForm";
 import MeasurementsTableItem from "./MeasurementsTableItem";
 import { addReading, getReadings } from "../SupabaseClient";
-import { v4 } from "uuid";
 
 const MeasurementsTable = (props) => {
   const [filter, setFilter] = useState("");
@@ -60,7 +59,7 @@ const MeasurementsTable = (props) => {
               item={reading}
               filter={filteredReadings}
               className={classes.tableContainer}
-              key={v4}
+              key={reading.id}
             />
           ))}
         </tbody>
