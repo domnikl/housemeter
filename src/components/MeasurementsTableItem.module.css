@@ -17,3 +17,16 @@
 .valueTable {
   padding: 10px;
 }
+.deletebutton {
+  margin-left: 80px;
+  padding: 5px;
+  border-radius: 15px;
+  color: red;
+  background-color: transparent;
+  border: transparent;
+  text-align: center;
+}
+
+button:hover {
+  color: #232740;
+}

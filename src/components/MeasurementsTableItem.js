@@ -21,7 +21,17 @@ const MeasurementsTableItem = (props) => {
         {new Intl.DateTimeFormat().format(new Date(props.item.date))}
       </td>
       <td className={classes.valueTable}>{props.item.type}</td>
-      <td className={classes.valueTable}> {formatValue(props.item)}</td>
+      <td className={classes.valueTable}>
+        {" "}
+        {formatValue(props.item)}
+        <button
+          type="button"
+          className={classes.deletebutton}
+          onClick={() => props.onRemove(props.item.id)}
+        >
+          X
+        </button>
+      </td>
     </tr>
   );
 };

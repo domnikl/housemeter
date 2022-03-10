@@ -9,7 +9,7 @@ const MeasurementsForm = (props) => {
     value: null,
     id: uuidv4(),
   });
-
+ 
   let measurementsCssClass = classes.valueInput;
 
   if (measurementsInput.value != null && measurementsInput.value <= 0) {

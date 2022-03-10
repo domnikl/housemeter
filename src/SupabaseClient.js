@@ -5,22 +5,19 @@ export const supabase = createClient(
   process.env.REACT_APP_SUPABASE_API_KEY
 );
 export async function addReading(measurement) {
-  const { data, error } = await supabase
-    .from("housemeter")
-    .insert([measurement]);
-  console.log(data, error);
+  const { error } = await supabase.from("readings").insert([measurement]);
+  return error;
 }
 
 export async function getReadings() {
-  const { data, error } = await supabase.from("housemeter").select("*");
-  console.log(error);
+  const { data } = await supabase.from("readings").select("*");
   return data;
 }
 
-export async function deleteData() {
-  const { data, error } = await supabase
-    .from("housemeter")
+export async function deleteData(reading) {
+  const { error } = await supabase
+    .from("readings")
     .delete()
-    .eq("some_column", "someValue");
-  console.log(data, error);
+    .match({ id: reading.id });
+  return error;
 }

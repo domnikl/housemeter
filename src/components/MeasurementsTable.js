@@ -2,12 +2,11 @@ import classes from "./MeasurementsTable.module.css";
 import React, { useState, useEffect } from "react";
 import MeasurementsForm from "./MeasurementsForm";
 import MeasurementsTableItem from "./MeasurementsTableItem";
-import { addReading, getReadings } from "../SupabaseClient";
-import { v4 } from "uuid";
+import { addReading, deleteData, getReadings } from "../SupabaseClient";
 
 const MeasurementsTable = (props) => {
   const [filter, setFilter] = useState("");
-
+  const [error, setError] = useState(null);
   const [measurementsList, setMeasurementsList] = useState([]);
 
   const filteredReadings = measurementsList.filter(
@@ -20,6 +19,9 @@ const MeasurementsTable = (props) => {
 
   async function measurementsHandleChange(measurement) {
     await addReading(measurement);
+    if (setError === null) {
+      alert("Ups here is somethings wrong. Please try again later.");
+    }
     setMeasurementsList([...measurementsList, measurement]);
   }
 
@@ -30,9 +32,15 @@ const MeasurementsTable = (props) => {
     fetchData();
   }, []);
 
+  const handleRemove = (reading) => {
+    deleteData(reading)
+    const newList = measurementsList.filter((r) => r.id !== reading.id);
+        setMeasurementsList(newList);
+  };
+
   return (
     <React.Fragment>
-      <MeasurementsForm onAdd={measurementsHandleChange} />
+      <MeasurementsForm onAdd={measurementsHandleChange} isValid={error} />
       <table className={classes.wrappingContainer}>
         <thead>
           <tr className={classes.header}>
@@ -60,7 +68,8 @@ const MeasurementsTable = (props) => {
               item={reading}
               filter={filteredReadings}
               className={classes.tableContainer}
-              key={v4}
+              key={reading.id}
+              onRemove={() => handleRemove(reading)}
             />
           ))}
         </tbody>
