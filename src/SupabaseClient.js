@@ -5,12 +5,16 @@ export const supabase = createClient(
   process.env.REACT_APP_SUPABASE_API_KEY
 );
 export async function addReading(measurement) {
-  const { error } = await supabase.from("readings").insert([measurement]);
-  return error;
+  const { error } = await supabase
+    .from("readings")
+    .insert([measurement])
+    .select("*");
+  if (error) console.log(error);
 }
 
 export async function getReadings() {
-  const { data } = await supabase.from("readings").select("*");
+  const { data, error } = await supabase.from("readings").select("*");
+  if (error) console.log(error);
   return data;
 }
 
@@ -18,6 +22,7 @@ export async function deleteData(reading) {
   const { error } = await supabase
     .from("readings")
     .delete()
-    .match({ id: reading.id });
-  return error;
+    .match({ id: reading.id })
+    .select("*");
+  if (error) console.log(error);
 }
