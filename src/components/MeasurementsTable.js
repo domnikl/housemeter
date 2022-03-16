@@ -1,33 +1,13 @@
 import classes from "./MeasurementsTable.module.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MeasurementsForm from "./MeasurementsForm";
 import MeasurementsTableItem from "./MeasurementsTableItem";
+import { addReading, getReadings } from "../SupabaseClient";
 
 const MeasurementsTable = (props) => {
   const [filter, setFilter] = useState("");
 
-  const readings = [
-    {
-      date: "2021-01-10",
-      type: "Electricity",
-      measurement: 1000,
-      id: Math.random().toString(),
-    },
-    {
-      date: "2021-05-10",
-      type: "Gas",
-      measurement: 100,
-      id: Math.random().toString(),
-    },
-    {
-      date: "2021-02-28",
-      type: "Water",
-      measurement: 11,
-      id: Math.random().toString(),
-    },
-  ];
-
-  const [measurementsList, setMeasurementsList] = useState(readings);
+  const [measurementsList, setMeasurementsList] = useState([]);
 
   const filteredReadings = measurementsList.filter(
     (reading) => reading.type === filter || filter === ""
@@ -37,15 +17,21 @@ const MeasurementsTable = (props) => {
     (a, b) => new Date(b.date) - new Date(a.date)
   );
 
-  const measurementsHandleChange = (measurement) => {
+  async function measurementsHandleChange(measurement) {
+    await addReading(measurement);
     setMeasurementsList([...measurementsList, measurement]);
-  };
-  //id hinzufügen - neues object mit alten werten und Id als neue dazu
+  }
+
+  useEffect(() => {
+    async function fetchData() {
+      setMeasurementsList(await getReadings());
+    }
+    fetchData();
+  }, []);
 
   return (
     <React.Fragment>
       <MeasurementsForm onAdd={measurementsHandleChange} />
-
       <table className={classes.wrappingContainer}>
         <thead>
           <tr className={classes.header}>
@@ -72,8 +58,8 @@ const MeasurementsTable = (props) => {
             <MeasurementsTableItem
               item={reading}
               filter={filteredReadings}
-              key={reading.id}
               className={classes.tableContainer}
+              key={reading.id}
             />
           ))}
         </tbody>

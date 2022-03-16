@@ -2,12 +2,11 @@ import MeasurementsForm from "./MeasurementsForm";
 import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
-
 describe("MeasurementsForm component", () => {
   test("whether the input field is there", () => {
     render(<MeasurementsForm />);
 
-    const inputEl = screen.getByTestId("inputfieldmeasurement");
+    const inputEl = screen.getByTestId("inputfieldvalue");
 
     expect(inputEl).toBeInstanceOf(HTMLInputElement);
     expect(inputEl.value).toBe("");
