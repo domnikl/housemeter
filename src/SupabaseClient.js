@@ -5,15 +5,12 @@ export const supabase = createClient(
   process.env.REACT_APP_SUPABASE_API_KEY
 );
 export async function addReading(measurement) {
-  const { data, error } = await supabase
-    .from("housemeter")
-    .insert([measurement]);
-    console.log(data,error)
+  const { data, error } = await supabase.from("readings").insert([measurement]);
+  console.log(data, error);
 }
 
 export async function getReadings() {
-  const { data, error } = await supabase.from("housemeter").select("*");
-  console.log(error)
+  const { data, error } = await supabase.from("readings").select("*");
+  console.log(error);
   return data;
 }
-
