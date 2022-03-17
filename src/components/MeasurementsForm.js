@@ -44,6 +44,13 @@ const MeasurementsForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     props.onAdd(measurementsInput);
+
+    // reset to initial values and regenerate Id
+    setMeasurementsInput({
+      ...measurementsInput,
+      value: null,
+      id: uuidv4(),
+    });
   };
 
   return (
