@@ -14,6 +14,12 @@ function formatValue(reading) {
   }
 }
 
+const handleDelete = ({ id }) => {
+  if (confirm("Are you sure you want to delete it?")) {
+    props.onRemove(id);
+  }
+};
+
 const MeasurementsTableItem = (props) => {
   return (
     <tr className={classes.tabelrow}>
@@ -27,7 +33,7 @@ const MeasurementsTableItem = (props) => {
         <button
           type="button"
           className={classes.deletebutton}
-          onClick={() => props.onRemove(props.item.id)}
+          onClick={() => handleDelete(props.item)}
         >
           X
         </button>
