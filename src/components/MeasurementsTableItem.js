@@ -14,13 +14,13 @@ function formatValue(reading) {
   }
 }
 
-const handleDelete = ({ id }) => {
-  if (confirm("Are you sure you want to delete it?")) {
-    props.onRemove(id);
-  }
-};
-
 const MeasurementsTableItem = (props) => {
+  const handleDelete = ({ id }) => {
+    if (window.confirm("Are you sure you want to delete it?")) {
+      props.onRemove(id);
+    }
+  };
+
   return (
     <tr className={classes.tabelrow}>
       <td className={classes.valueTable}>
