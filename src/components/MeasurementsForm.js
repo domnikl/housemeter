@@ -77,7 +77,7 @@ const MeasurementsForm = (props) => {
       <input
         data-testid="inputfieldvalue"
         name="measurementsInput"
-        type="number"
+        type="text"
         onChange={handleMeasurementChange}
         className={measurementsCssClass}
       ></input>
