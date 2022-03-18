@@ -6,6 +6,7 @@ export const supabase = createClient(
 );
 
 export async function addReading(measurement) {
+<<<<<<< HEAD
   const { error } = await supabase
     .from("readings")
     .insert([measurement])
@@ -20,10 +21,18 @@ export async function deleteData(reading) {
     .match({ id: reading.id });
 
   if (error) console.log(error);
+=======
+  const { data, error } = await supabase.from("readings").insert([measurement]);
+  console.log(data, error);
+>>>>>>> main
 }
 
 export async function getReadings() {
   const { data, error } = await supabase.from("readings").select("*");
+<<<<<<< HEAD
   if (error) console.log(error);
+=======
+  console.log(error);
+>>>>>>> main
   return data;
 }
