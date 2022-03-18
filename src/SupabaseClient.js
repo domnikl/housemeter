@@ -17,8 +17,8 @@ export async function deleteData(reading) {
   const { error } = await supabase
     .from("readings")
     .delete()
-    .match({ id: reading.id })
-    .select("*");
+    .match({ id: reading.id });
+
   if (error) console.log(error);
 }
 
