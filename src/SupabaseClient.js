@@ -10,7 +10,7 @@ export async function addReading(measurement) {
     .from("readings")
     .insert([measurement])
     .select("*");
-  if (error) console.log(error);
+  if (error) return <div>failed to load data</div>;
 }
 
 export async function deleteData(reading) {
@@ -19,11 +19,11 @@ export async function deleteData(reading) {
     .delete()
     .match({ id: reading.id });
 
-  if (error) console.log(error);
+  if (error) return <div>failed delete data</div>;
 }
 
 export async function getReadings() {
   const { data, error } = await supabase.from("readings").select("*");
-  if (error) console.log(error);
+  if (error) return <div>failed get data</div>;
   return data;
 }
