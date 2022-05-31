@@ -1,6 +1,6 @@
 import classes from "./MeasurementsTable.module.css";
 import React, { useState, useEffect } from "react";
-import MeasurementsForm from "./MeasurementsForm";
+import MeasurementsForm from "./Form/MeasurementsForm";
 import MeasurementsTableItem from "./MeasurementsTableItem";
 import { addReading, deleteData, getReadings } from "../SupabaseClient";
 
@@ -33,9 +33,9 @@ const MeasurementsTable = (props) => {
   }, []);
 
   const handleRemove = (reading) => {
-    deleteData(reading)
+    deleteData(reading);
     const newList = measurementsList.filter((r) => r.id !== reading.id);
-        setMeasurementsList(newList);
+    setMeasurementsList(newList);
   };
 
   return (
