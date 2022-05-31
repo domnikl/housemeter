@@ -1,0 +1,66 @@
+.inputForm {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: #232740;
+  margin: 50px 60px 10px 60px;
+  border-radius: 10px;
+  padding: 50px;
+}
+
+.valueInput {
+  border: 8px;
+  background-color: #44428c;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
+  font-family: sans-serif;
+  border-radius: 5px;
+  color: #f2f2f2;
+  border: solid grey 1px;
+}
+
+.valueInputInvalid {
+  border-color: red;
+  background: #964141;
+}
+
+.meterTypeSelect {
+  padding: 5px;
+  background-color: #44428c;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
+  font-family: sans-serif;
+  border-radius: 8px;
+  color: #f2f2f2;
+  border: solid grey 1px;
+}
+
+.submitButton {
+  padding: 8px;
+  width: 100px;
+  background-color: #8777f2;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
+  color: rgb(255, 255, 255);
+  border: solid grey 1px;
+  border-radius: 8px;
+}
+.submitButton:disabled,
+.submitButton:disabled:hover,
+.submitButton:disabled:active {
+  background-color: #ccc;
+  color: rgb(25, 24, 24);
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.inputDate {
+  background-color: #44428c;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
+  color: #f2f2f2;
+  border: 1px rgba(0, 0, 0, 0.301) solid;
+  border-radius: 8px;
+  font-family: sans-serif;
+}
+
+.invalid {
+  border-color: red;
+  background: #964141;
+}
