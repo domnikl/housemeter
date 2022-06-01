@@ -3,9 +3,12 @@ import { v4 as uuidv4 } from "uuid";
 import useInput from "./useInput";
 
 const MeasurementsForm = (props) => {
-  //TODO: Validierungs Regeln Anpassen
-  const inputValue = useInput((value) => value !== "", ""); //TODO: valide gleitkommazahl nicht <0 mit .
-  const inputType = useInput((type) => type !== "", "Electricity"); //TODO: nur einen vorhanden Type eingegeben werden kann
+  const inputValue = useInput((value) => value !== " ", "");
+  const inputType = useInput(
+    (type) =>
+      type !== " " && type.includes(["Electricity" || "Gas" || "Water"]),
+    "Electricity"
+  );
   const inputDate = useInput(
     (date) => !isNaN(new Date(date).getTime()),
     new Date().toISOString("h12", "hour12").split("T")[0]
@@ -27,7 +30,6 @@ const MeasurementsForm = (props) => {
       id: uuidv4(),
     });
 
-    // reset to initial values and regenerate Id
     inputValue.reset();
   };
 
@@ -79,7 +81,8 @@ const MeasurementsForm = (props) => {
         className={classes.valueInput}
         value={inputValue.value}
         data-testid="inputfieldvalue"
-        type="text"
+        type="number"
+        min={1}
         onChange={inputValue.valueChangeHandler}
         onBlur={inputValue.inputBlurHandler}
       ></input>
@@ -99,5 +102,3 @@ const MeasurementsForm = (props) => {
 };
 
 export default MeasurementsForm;
-
-//erst state ändern dann erste valueInput componente neu rendern
