@@ -2,22 +2,31 @@ import classes from "./MeasurementsForm.module.css";
 import { v4 as uuidv4 } from "uuid";
 import useInput from "./useInput";
 
-const MeasurementsForm = (props) => {
-  const inputValue = useInput((value) => value !== " ", "");
+interface MeasurementsFormProps {
+  onAdd: (measurement: {
+    //TODO: interface
+    date: string | number;
+    type: string;
+    value: number;
+    id: string;
+  }) => void;
+}
+
+export default function MeasurementsForm(props: MeasurementsFormProps) {
+  const inputValue = useInput((value) => value !== "", "");
   const inputType = useInput(
-    (type) =>
-      type !== " " && type.includes(["Electricity" || "Gas" || "Water"]),
+    (type) => type !== " " && ["Electricity", "Gas", "Water"].includes(type),
     "Electricity"
   );
   const inputDate = useInput(
     (date) => !isNaN(new Date(date).getTime()),
-    new Date().toISOString("h12", "hour12").split("T")[0]
+    new Date().toISOString().split("T")[0]
   );
 
   let formValidity =
     inputValue.isValid && inputType.isValid && inputDate.isValid;
 
-  const submitHandler = (event) => {
+  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!formValidity) {
       return;
@@ -26,7 +35,7 @@ const MeasurementsForm = (props) => {
     props.onAdd({
       date: inputDate.value,
       type: inputType.value,
-      value: inputValue.value,
+      value: parseFloat(inputValue.value),
       id: uuidv4(),
     });
 
@@ -99,6 +108,4 @@ const MeasurementsForm = (props) => {
       </button>
     </form>
   );
-};
-
-export default MeasurementsForm;
+}
