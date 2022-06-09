@@ -7,13 +7,7 @@ import {
   deleteMeasurements,
   getMeasurements,
 } from "../SupabaseClient";
-
-interface Measurement {
-  date: number | string;
-  value: number;
-  type: string;
-  id: string;
-}
+import { Measurement } from "../interfaceMeasurement";
 
 const MeasurementsTable = () => {
   const [filter, setFilter] = useState<string | object>("");
@@ -46,7 +40,7 @@ const MeasurementsTable = () => {
       (r: Measurement) => r.id !== reading.id
     );
     setMeasurementsList(newList);
-  };                                                                                                                                                                                                                                                                            
+  };
 
   return (
     <React.Fragment>
@@ -77,8 +71,6 @@ const MeasurementsTable = () => {
           {sortReadings.map((reading: Measurement) => (
             <MeasurementsTableItem
               item={reading}
-              filter={filteredReadings}
-              className={classes.tableContainer}
               key={reading.id}
               onRemove={() => handleRemove(reading)}
             />
