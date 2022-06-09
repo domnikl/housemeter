@@ -1,12 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-
-//TODO: Interface auslagern
-interface Measurement {
-  date: string | number;
-  value: number;
-  type: string;
-  id: string;
-}
+import { Measurement } from "./interfaceMeasurement";
 
 export const supabase = createClient(
   "https://burmmhznjahkpzyzltgg.supabase.co",
@@ -22,7 +15,7 @@ export async function addMeasurements(measurement: Measurement) {
   if (error != null) {
     throw new Error(error.message);
   }
-  
+
   if (data === null) {
     throw new Error("Error, data cant be null");
   }
