@@ -1,5 +1,5 @@
 export interface Measurement {
-  date: string | number;
+  date: Date;
   value: number;
   type: string;
   id: string;

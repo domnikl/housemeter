@@ -1,15 +1,10 @@
 import classes from "./MeasurementsForm.module.css";
 import { v4 as uuidv4 } from "uuid";
 import useInput from "./useInput";
+import { Measurement } from "../../interfaceMeasurement";
 
 interface MeasurementsFormProps {
-  onAdd: (measurement: {
-    //TODO: interface
-    date: string | number;
-    type: string;
-    value: number;
-    id: string;
-  }) => void;
+  onAdd: (measurement: Measurement) => void;
 }
 
 export default function MeasurementsForm(props: MeasurementsFormProps) {
@@ -33,7 +28,7 @@ export default function MeasurementsForm(props: MeasurementsFormProps) {
     }
 
     props.onAdd({
-      date: inputDate.value,
+      date: new Date(inputDate.value),
       type: inputType.value,
       value: parseFloat(inputValue.value),
       id: uuidv4(),
@@ -41,6 +36,7 @@ export default function MeasurementsForm(props: MeasurementsFormProps) {
 
     inputValue.reset();
   };
+  console.log(props.onAdd);
 
   return (
     <form

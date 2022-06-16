@@ -34,10 +34,10 @@ const MeasurementsTable = () => {
     fetchData();
   }, []);
 
-  const handleRemove = (reading: Measurement) => {
-    deleteMeasurements(reading);
+  const handleRemove = (measurement: Measurement) => {
+    deleteMeasurements(measurement);
     const newList = measurementsList.filter(
-      (r: Measurement) => r.id !== reading.id
+      (r: Measurement) => r.id !== measurement.id
     );
     setMeasurementsList(newList);
   };

@@ -42,7 +42,7 @@
   border: solid grey 1px;
   border-radius: 8px;
 }
-.submitButton:disabled,
+.submitButton::disabled,
 .submitButton:disabled:hover,
 .submitButton:disabled:active {
   background-color: #ccc;
