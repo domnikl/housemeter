@@ -36,7 +36,6 @@ export default function MeasurementsForm(props: MeasurementsFormProps) {
 
     inputValue.reset();
   };
-  console.log(props.onAdd);
 
   return (
     <form
