@@ -4,7 +4,7 @@ import { Measurement } from "../interfaceMeasurement";
 
 function formatValue(reading: Measurement) {
   const formattedValue = new Intl.NumberFormat("de-DE", {
-    style: "number",
+    style: "decimal",
   }).format(reading.value);
   if (reading.type === "Electricity") {
     return formattedValue + " kWh";
