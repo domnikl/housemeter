@@ -7,7 +7,7 @@ export const supabase = createClient(
 
 export async function addReading(measurement) {
   const { error } = await supabase
-    .from("readings")
+    .from("reading")
     .insert([measurement])
     .select("*");
   if (error) return <div>failed to load data</div>;
@@ -15,7 +15,7 @@ export async function addReading(measurement) {
 
 export async function deleteData(reading) {
   const { error } = await supabase
-    .from("readings")
+    .from("reading")
     .delete()
     .match({ id: reading.id });
 
@@ -23,7 +23,7 @@ export async function deleteData(reading) {
 }
 
 export async function getReadings() {
-  const { data, error } = await supabase.from("readings").select("*");
+  const { data, error } = await supabase.from("reading").select("*");
   if (error) return <div>failed get data</div>;
   return data;
 }
