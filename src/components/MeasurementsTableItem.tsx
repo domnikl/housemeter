@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./MeasurementsTableItem.module.css";
-import { Measurement } from "../interfaceMeasurement";
+import { Measurement } from "../MeasurementInterface";
 
 function formatValue(reading: Measurement) {
   const formattedValue = new Intl.NumberFormat("de-DE", {

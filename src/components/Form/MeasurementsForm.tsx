@@ -1,7 +1,7 @@
 import classes from "./MeasurementsForm.module.css";
 import { v4 as uuidv4 } from "uuid";
 import useInput from "./useInput";
-import { Measurement } from "../../interfaceMeasurement";
+import { Measurement } from "../../MeasurementInterface";
 
 interface MeasurementsFormProps {
   onAdd: (measurement: Measurement) => void;

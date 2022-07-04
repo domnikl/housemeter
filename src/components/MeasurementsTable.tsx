@@ -7,7 +7,7 @@ import {
   deleteMeasurements,
   getMeasurements,
 } from "../SupabaseClient";
-import { Measurement } from "../interfaceMeasurement";
+import { Measurement } from "../MeasurementInterface";
 
 const MeasurementsTable = () => {
   const [filter, setFilter] = useState<string | object>("");

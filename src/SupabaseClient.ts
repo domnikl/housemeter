@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import { Measurement } from "./interfaceMeasurement";
+import { Measurement } from "./MeasurementInterface";
 
 export const supabase = createClient(
   "https://burmmhznjahkpzyzltgg.supabase.co",
