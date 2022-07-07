@@ -46,53 +46,61 @@ export default function MeasurementsForm(props: MeasurementsFormProps) {
       <label htmlFor="Date" className={classes.lable}>
         Date
       </label>
-      <input
-        data-testid="inputDate"
-        type="date"
-        name="date"
-        value={inputDate.value}
-        className={classes.inputDate}
-        onChange={inputDate.valueChangeHandler}
-        onBlur={inputDate.inputBlurHandler}
-      ></input>
-      {inputDate.hasError && (
-        <p className={classes.invalid}>Please input a valid date.</p>
-      )}
+      <div>
+        <input
+          data-testid="inputDate"
+          type="date"
+          name="date"
+          value={inputDate.value}
+          className={classes.inputDate}
+          onChange={inputDate.valueChangeHandler}
+          onBlur={inputDate.inputBlurHandler}
+        />
+        {inputDate.hasError && (
+          <p className={classes.invalid}>Please input a valid date.</p>
+        )}
+      </div>
+
       <label htmlFor="lableType" className={classes.lable}>
         Type
       </label>
-      <div className={classes.selectcontainer}>
-        <select
-          data-testid="selectInputType"
-          name="measurementsType"
-          value={inputType.value}
-          className={classes.meterTypeSelect}
-          onChange={inputType.valueChangeHandler}
-          onBlur={inputType.inputBlurHandler}
-        >
-          <option value="Electricity">Electricity</option>
-          <option value="Water">Water</option>
-          <option value="Gas">Gas</option>
-        </select>
+      <div>
+        <div className={classes.selectcontainer}>
+          <select
+            data-testid="selectInputType"
+            name="measurementsType"
+            value={inputType.value}
+            className={classes.meterTypeSelect}
+            onChange={inputType.valueChangeHandler}
+            onBlur={inputType.inputBlurHandler}
+          >
+            <option value="Electricity">Electricity</option>
+            <option value="Water">Water</option>
+            <option value="Gas">Gas</option>
+          </select>
+        </div>
+        {inputType.hasError && (
+          <p className={classes.invalid}>Please input a valid type.</p>
+        )}
       </div>
-      {inputType.hasError && (
-        <p className={classes.invalid}>Please input a valid type.</p>
-      )}
+
       <label htmlFor="value" className={classes.label}>
         Measurement
       </label>
-      <input
-        className={classes.valueInput}
-        value={inputValue.value}
-        data-testid="inputfieldvalue"
-        type="number"
-        min={1}
-        onChange={inputValue.valueChangeHandler}
-        onBlur={inputValue.inputBlurHandler}
-      ></input>
-      {inputValue.hasError && (
-        <p className={classes.invalid}>Please input a valid value.</p>
-      )}
+      <div>
+        <input
+          className={classes.valueInput}
+          value={inputValue.value}
+          data-testid="inputfieldvalue"
+          type="number"
+          min={1}
+          onChange={inputValue.valueChangeHandler}
+          onBlur={inputValue.inputBlurHandler}
+        />
+        {inputValue.hasError && (
+          <p className={classes.invalid}>Please input a valid value.</p>
+        )}
+      </div>
 
       <button
         type="submit"
