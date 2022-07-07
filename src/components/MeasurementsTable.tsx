@@ -1,46 +1,51 @@
 import classes from "./MeasurementsTable.module.css";
 import React, { useState, useEffect } from "react";
-import MeasurementsForm from "./MeasurementsForm";
+import MeasurementsForm from "./Form/MeasurementsForm";
 import MeasurementsTableItem from "./MeasurementsTableItem";
-import { addReading, deleteData, getReadings } from "../SupabaseClient";
+import {
+  addMeasurements,
+  deleteMeasurements,
+  getMeasurements,
+} from "../SupabaseClient";
+import { Measurement } from "../MeasurementInterface";
 
-const MeasurementsTable = (props) => {
-  const [filter, setFilter] = useState("");
-  const [error, setError] = useState(null);
-  const [measurementsList, setMeasurementsList] = useState([]);
+const MeasurementsTable = () => {
+  const [filter, setFilter] = useState<string | object>("");
+  const [measurementsList, setMeasurementsList] = useState<Measurement[]>([]);
 
   const filteredReadings = measurementsList.filter(
-    (reading) => reading.type === filter || filter === ""
+    (measurement: Measurement) => measurement.type === filter || filter === ""
   );
 
   const sortReadings = filteredReadings.sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
+    (a: Measurement, b: Measurement) =>
+      new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
-  async function measurementsHandleChange(measurement) {
-    await addReading(measurement);
-    if (setError === null) {
-      alert("Ups here is somethings wrong. Please try again later.");
-    }
+  async function measurementsHandleChange(measurement: Measurement) {
+    await addMeasurements(measurement);
     setMeasurementsList([...measurementsList, measurement]);
   }
 
   useEffect(() => {
     async function fetchData() {
-      setMeasurementsList(await getReadings());
+      setMeasurementsList(await getMeasurements());
     }
     fetchData();
   }, []);
 
-  const handleRemove = (reading) => {
-    deleteData(reading)
-    const newList = measurementsList.filter((r) => r.id !== reading.id);
-        setMeasurementsList(newList);
+  const handleRemove = (measurement: Measurement) => {
+    deleteMeasurements(measurement);
+    const newList = measurementsList.filter(
+      (r: Measurement) => r.id !== measurement.id
+    );
+    setMeasurementsList(newList);
   };
 
   return (
     <React.Fragment>
-      <MeasurementsForm onAdd={measurementsHandleChange} isValid={error} />
+      <MeasurementsForm onAdd={measurementsHandleChange} />
+
       <table className={classes.wrappingContainer}>
         <thead>
           <tr className={classes.header}>
@@ -63,11 +68,9 @@ const MeasurementsTable = (props) => {
           </tr>
         </thead>
         <tbody className={classes.bodyContainer}>
-          {sortReadings.map((reading) => (
+          {sortReadings.map((reading: Measurement) => (
             <MeasurementsTableItem
               item={reading}
-              filter={filteredReadings}
-              className={classes.tableContainer}
               key={reading.id}
               onRemove={() => handleRemove(reading)}
             />

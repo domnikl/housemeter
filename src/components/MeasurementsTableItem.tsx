@@ -1,10 +1,11 @@
 import React from "react";
 import classes from "./MeasurementsTableItem.module.css";
+import { Measurement } from "../MeasurementInterface";
 
-function formatValue(reading) {
-  const formattedValue = new Intl.NumberFormat({ style: "number" }).format(
-    reading.value
-  );
+function formatValue(reading: Measurement) {
+  const formattedValue = new Intl.NumberFormat("de-DE", {
+    style: "decimal",
+  }).format(reading.value);
   if (reading.type === "Electricity") {
     return formattedValue + " kWh";
   } else if (reading.type === "Water") {
@@ -14,8 +15,13 @@ function formatValue(reading) {
   }
 }
 
-const MeasurementsTableItem = (props) => {
-  const handleDelete = ({ id }) => {
+interface MeasurementsTableItemProps {
+  onRemove: (id: string) => void;
+  item: Measurement;
+}
+
+const MeasurementsTableItem = (props: MeasurementsTableItemProps) => {
+  const handleDelete = ({ id }: Measurement) => {
     if (window.confirm("Are you sure you want to delete it?")) {
       props.onRemove(id);
     }
