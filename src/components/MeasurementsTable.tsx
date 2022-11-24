@@ -16,6 +16,7 @@ const MeasurementsTable = () => {
   const filteredReadings = measurementsList.filter(
     (measurement: Measurement) => measurement.type === filter || filter === ""
   );
+  console.log(filteredReadings);
 
   const sortReadings = filteredReadings.sort(
     (a: Measurement, b: Measurement) =>

@@ -1,9 +1,7 @@
 :root {
   --primary-color-dark: #5b5d79;
   --primary-color-white: #f2f2f2;
-  --blue: #719dd5;
-  --purple: #91A0FF;
-
+  --color-green: #1cd4a3;
 }
 
 body {
@@ -13,7 +11,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background: #151826; */
   color: var(--primary-color-white);
   line-height: 1.6;
   background-color: var(--primary-color-white);

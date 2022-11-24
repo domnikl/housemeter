@@ -3,21 +3,35 @@
   gap: 1.5rem;
   grid-template-columns: repeat(2, 1fr);
   background-color: var(--primary-color-dark);
-  margin: 50px 60px 10px 60px;
+  margin: 4rem 4rem 0.8rem 4rem;
   border-radius: 1rem;
   padding: 4rem;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
+}
+
+.inputDate {
+  background-color: var(--primary-color-white);
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
+  color: var(--primary-color-dark);
+  border: 1px rgba(0, 0, 0, 0.301) solid;
+  border-radius: 8px;
+  font-family: sans-serif;
+  font-size: 1rem;
+  padding: 0.3rem;
+  letter-spacing: 0.1rem;
 }
 
 .valueInput {
   border: 8px;
-  background-color: var(--purple);
+  background-color: var(--primary-color-white);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   font-family: sans-serif;
   border-radius: 5px;
-  color: var(--primary-color-white);
+  color: var(--primary-color-dark);
   border: solid grey 1px;
   font-size: 1rem;
-  padding: 0.3rem
+  padding: 0.3rem;
+  letter-spacing: 0.1rem;
 }
 
 .valueInputInvalid {
@@ -26,22 +40,23 @@
 }
 
 .meterTypeSelect {
-  padding: 5px;
-  background-color: var(--purple);
+  padding: 0.3rem;
+  background-color: var(--primary-color-white);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   font-family: sans-serif;
   border-radius: 8px;
-  color: var(--primary-color-white);
+  color: var(--primary-color-dark);
   border: solid grey 1px;
   font-size: 1rem;
-  padding: 0.3rem
+  padding: 0.3rem;
+  letter-spacing: 0.1rem;
 }
 
 .submitButton {
   font-size: 1rem;
   padding: 8px;
   width: 100px;
-  background-color: #1CD4A3;
+  background-color: var(--color-green);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   color: var(--primary-color-white);
   border: solid var(--purple) 1px;
@@ -50,21 +65,10 @@
 .submitButton:disabled,
 .submitButton:disabled:hover,
 .submitButton:disabled:active {
-  background-color: var(--blue);
-  color: var(--primary-color-white);
+  background-color: var(--primary-color-white);
+  color: var(--primary-color-dark);
   border-color: #ccc;
   cursor: not-allowed;
-}
-
-.inputDate {
-  background-color: var(--purple);
-  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
-  color: #f2f2f2;
-  border: 1px rgba(0, 0, 0, 0.301) solid;
-  border-radius: 8px;
-  font-family: sans-serif;
-  font-size: 1rem;
-  padding: 0.3rem;
 }
 
 .invalid {
@@ -75,4 +79,5 @@
 label {
   text-align: center;
   font-size: 1.2rem;
+  letter-spacing: 0.1rem;
 }

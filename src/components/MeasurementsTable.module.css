@@ -1,14 +1,14 @@
 .wrappingContainer {
-  margin: 50px 20px 20px 20px;
-  border: 5px;
-  padding: 30px;
+  margin: 2rem 1rem 1rem 1rem;
+  border: 0.5rem;
+  padding: 1.5rem;
 }
 
 .meterTypeSelect {
-  margin: 0px 0px 0px 15px;
-  padding: 5px;
-  border: 20px;
-  background: var(--blue);
+  margin: 0 0 0 1rem;
+  padding: 0.2rem;
+  border: 1rem;
+  background: var(--primary-color-dark);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   font-family: sans-serif;
   border-radius: 8px;
@@ -23,6 +23,7 @@
   flex-direction: row;
   justify-content: space-between;
   width: 89%;
+  color: rgb(73, 73, 73);
 }
 
 .tabletype {

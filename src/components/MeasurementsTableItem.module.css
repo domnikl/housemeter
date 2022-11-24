@@ -1,5 +1,6 @@
 .tabelrow:hover {
-  background-color: #205BE3;
+  color: var(--primary-color-dark);
+  background-color: var(--primary-color-white);
 }
 
 .tabelrow {
@@ -11,7 +12,7 @@
   border-collapse: collapse;
   border-radius: 8px;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
-  background-color: #010440;
+  background-color: var(--primary-color-dark);
 }
 
 .valueTable {
