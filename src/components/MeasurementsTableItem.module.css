@@ -1,5 +1,5 @@
 .tabelrow:hover {
-  background-color: #8777f2;
+  background-color: #205BE3;
 }
 
 .tabelrow {
@@ -11,20 +11,19 @@
   border-collapse: collapse;
   border-radius: 8px;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
-  background-color: #232740;
+  background-color: #010440;
 }
 
 .valueTable {
   padding: 10px;
 }
 .deletebutton {
-  margin-left: 80px;
+  margin-left: 1rem;
   padding: 5px;
   border-radius: 15px;
   color: red;
   background-color: transparent;
   border: transparent;
-  text-align: center;
 }
 
 button:hover {

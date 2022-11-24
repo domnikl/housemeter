@@ -11,7 +11,8 @@
 }
 
 .AppHeader {
-  padding: 80px;
+  padding: 3rem;
+  letter-spacing: 1rem;
   justify-content: left;
   font-size: calc(10px + 2vmin);
   color: rgb(15, 13, 13);
@@ -21,17 +22,11 @@
   margin: 5px;
   padding: 5px;
   text-align: center;
-  font-size: xx-large;
-  color: #f2f2f2;
+  font-size: 4rem;
+  color: var(--primary-color-white);
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-
-/* .container {
-  background-size: cover;
-  height: 100vh;
-  background-position: top;
-} */
 
 @media screen and (min-width: 200px) {
   .container {
@@ -41,12 +36,13 @@
 
 .logoutbutton {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 8px;
-  background-color: #725ef2;
+  top: 2rem;
+  right: 2rem;
+  padding: 1rem;
+  background-color: var(--purple);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
-  color: rgb(255, 255, 255);
+  color: var(--primary-color-white);
   border: solid #151826 1px;
   border-radius: 30px;
+  font-size: 1rem;
 }

@@ -2,20 +2,22 @@
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(2, 1fr);
-  background-color: #232740;
+  background-color: var(--primary-color-dark);
   margin: 50px 60px 10px 60px;
-  border-radius: 10px;
-  padding: 50px;
+  border-radius: 1rem;
+  padding: 4rem;
 }
 
 .valueInput {
   border: 8px;
-  background-color: #44428c;
+  background-color: var(--purple);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   font-family: sans-serif;
   border-radius: 5px;
-  color: #f2f2f2;
+  color: var(--primary-color-white);
   border: solid grey 1px;
+  font-size: 1rem;
+  padding: 0.3rem
 }
 
 .valueInputInvalid {
@@ -25,42 +27,52 @@
 
 .meterTypeSelect {
   padding: 5px;
-  background-color: #44428c;
+  background-color: var(--purple);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   font-family: sans-serif;
   border-radius: 8px;
-  color: #f2f2f2;
+  color: var(--primary-color-white);
   border: solid grey 1px;
+  font-size: 1rem;
+  padding: 0.3rem
 }
 
 .submitButton {
+  font-size: 1rem;
   padding: 8px;
   width: 100px;
-  background-color: #8777f2;
+  background-color: #1CD4A3;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
-  color: rgb(255, 255, 255);
-  border: solid grey 1px;
+  color: var(--primary-color-white);
+  border: solid var(--purple) 1px;
   border-radius: 8px;
 }
 .submitButton:disabled,
 .submitButton:disabled:hover,
 .submitButton:disabled:active {
-  background-color: #ccc;
-  color: rgb(25, 24, 24);
+  background-color: var(--blue);
+  color: var(--primary-color-white);
   border-color: #ccc;
   cursor: not-allowed;
 }
 
 .inputDate {
-  background-color: #44428c;
+  background-color: var(--purple);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   color: #f2f2f2;
   border: 1px rgba(0, 0, 0, 0.301) solid;
   border-radius: 8px;
   font-family: sans-serif;
+  font-size: 1rem;
+  padding: 0.3rem;
 }
 
 .invalid {
   border-color: red;
   background: #964141;
+}
+
+label {
+  text-align: center;
+  font-size: 1.2rem;
 }

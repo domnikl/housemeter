@@ -8,7 +8,7 @@
   margin: 0px 0px 0px 15px;
   padding: 5px;
   border: 20px;
-  background: #8777f2;
+  background: var(--blue);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   font-family: sans-serif;
   border-radius: 8px;
@@ -17,18 +17,18 @@
 
 .header {
   display: flex;
-  padding: 10px;
+  padding: 1rem;
   margin: 0px 0px 0px 20px;
-  border: 10px;
+  border: 1rem;
   flex-direction: row;
   justify-content: space-between;
   width: 89%;
 }
 
 .tabletype {
-  padding-left: 95px;
+  padding-left: 5rem;
 }
 
 .tablemeasurement {
-  padding-right: 40px;
+  padding-right: 7.9rem;
 }
