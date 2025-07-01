@@ -1,31 +1,93 @@
 .tabelrow:hover {
   color: var(--primary-color-dark);
   background-color: var(--primary-color-white);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.tabelrow {
-  margin: 0.6em;
-  padding: 20px;
+.tablerow {
+  margin: 0.3em;
+  padding: 0.8rem;
   display: table;
   table-layout: fixed;
-  width: 97%;
+  width: 100%;
   border-collapse: collapse;
   border-radius: 8px;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   background-color: var(--primary-color-dark);
+  transition: all 0.2s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .tablerow {
+    margin: 0.6em;
+    padding: 20px;
+  }
 }
 
 .valueTable {
-  padding: 10px;
+  padding: 0.5rem;
   vertical-align: middle;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
+
+@media (min-width: 768px) {
+  .valueTable {
+    padding: 10px;
+  }
+}
+
 .deletebutton {
-  margin-left: 1rem;
-  padding: 5px;
-  border-radius: 15px;
+  margin-left: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 50%;
   color: red;
   background-color: transparent;
-  border: transparent;
+  border: 2px solid red;
+  font-weight: bold;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-width: 32px;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .deletebutton {
+    margin-left: 1rem;
+    padding: 5px;
+    border-radius: 15px;
+    border: transparent;
+    min-width: auto;
+    min-height: auto;
+  }
+}
+
+.deletebutton:hover {
+  background-color: red;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Mobile optimizations */
+@media (max-width: 767px) {
+  .tablerow {
+    margin: 0.2em 0;
+  }
+
+  .valueTable {
+    font-size: 0.875rem;
+  }
+
+  .deletebutton {
+    font-size: 1rem;
+    min-width: 36px;
+    min-height: 36px;
+  }
 }
 
 button:hover {

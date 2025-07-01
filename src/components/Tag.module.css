@@ -1,8 +1,8 @@
 .tag {
   display: inline-block;
-  padding: 0.25rem 0.75rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 1rem;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -10,6 +10,14 @@
   transition: all 0.2s ease-in-out;
   cursor: default;
   user-select: none;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .tag {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+  }
 }
 
 .tag:hover {
@@ -19,13 +27,30 @@
 
 .defaultTag {
   display: inline-block;
-  padding: 0.25rem 0.75rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 1rem;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   background-color: #6c757d;
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .defaultTag {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 767px) {
+  .tag,
+  .defaultTag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
 }

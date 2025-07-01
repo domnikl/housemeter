@@ -1,12 +1,67 @@
 .inputForm {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
-  grid-template-columns: repeat(2, 1fr);
   background-color: var(--primary-color-dark);
-  margin: 4rem 4rem 0.8rem 4rem;
+  margin: 2rem 1rem 0.8rem 1rem;
   border-radius: 1rem;
-  padding: 4rem;
+  padding: 2rem;
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
+}
+
+/* Desktop layout */
+@media (min-width: 768px) {
+  .inputForm {
+    margin: 4rem 4rem 0.8rem 4rem;
+    padding: 4rem;
+    gap: 2rem;
+  }
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .formRow {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.formLabel {
+  min-width: 120px;
+  text-align: left;
+  font-size: 1.1rem;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  color: var(--primary-color-white);
+}
+
+@media (min-width: 768px) {
+  .formLabel {
+    text-align: right;
+    font-size: 1.1rem;
+  }
+}
+
+.formInput {
+  flex: 1;
+}
+
+.submitRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .submitRow {
+    margin-top: 2rem;
+  }
 }
 
 .inputDate {
@@ -17,21 +72,24 @@
   border-radius: 8px;
   font-family: sans-serif;
   font-size: 1rem;
-  padding: 0.3rem;
+  padding: 0.8rem;
   letter-spacing: 0.1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .valueInput {
-  border: 8px;
   background-color: var(--primary-color-white);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   font-family: sans-serif;
-  border-radius: 5px;
+  border-radius: 8px;
   color: var(--primary-color-dark);
   border: solid grey 1px;
   font-size: 1rem;
-  padding: 0.3rem;
+  padding: 0.8rem;
   letter-spacing: 0.1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .valueInputInvalid {
@@ -40,7 +98,6 @@
 }
 
 .meterTypeSelect {
-  padding: 0.3rem;
   background-color: var(--primary-color-white);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   font-family: sans-serif;
@@ -48,20 +105,30 @@
   color: var(--primary-color-dark);
   border: solid grey 1px;
   font-size: 1rem;
-  padding: 0.3rem;
+  padding: 0.8rem;
   letter-spacing: 0.1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .submitButton {
   font-size: 1rem;
-  padding: 8px;
-  width: 100px;
+  padding: 0.8rem 1.5rem;
   background-color: var(--color-green);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   color: var(--primary-color-white);
   border: solid var(--purple) 1px;
   border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-width: 120px;
 }
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
 .submitButton:disabled,
 .submitButton:disabled:hover,
 .submitButton:disabled:active {
@@ -69,15 +136,39 @@
   color: var(--primary-color-dark);
   border-color: #ccc;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
 }
 
 .invalid {
   border-color: red;
   background: #964141;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
 }
 
-label {
-  text-align: center;
-  font-size: 1.2rem;
-  letter-spacing: 0.1rem;
+/* Mobile optimizations */
+@media (max-width: 767px) {
+  .inputForm {
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .formLabel {
+    font-size: 1rem;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+
+  .inputDate,
+  .valueInput,
+  .meterTypeSelect {
+    padding: 1rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
 }

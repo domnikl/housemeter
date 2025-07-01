@@ -29,7 +29,7 @@ const MeasurementsTableItem = (props: MeasurementsTableItemProps) => {
   };
 
   return (
-    <tr className={classes.tabelrow}>
+    <tr className={classes.tablerow}>
       <td className={classes.valueTable}>
         {new Intl.DateTimeFormat().format(new Date(props.item.date))}
       </td>

@@ -1,46 +1,101 @@
 .App {
   text-align: left;
   font-family: sans-serif;
-  width: 70%;
-  @media (min-width: 600px) {
-    width: 50%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .App {
+    width: 90%;
+    padding: 0 2rem;
   }
-  @media (min-width: 600px) {
-    width: 50%;
+}
+
+@media (min-width: 1024px) {
+  .App {
+    width: 80%;
   }
 }
 
 .AppHeader {
-  padding: 2rem;
-  letter-spacing: 2rem;
+  padding: 1rem;
+  letter-spacing: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .AppHeader {
+    padding: 2rem;
+    letter-spacing: 2rem;
+  }
 }
 
 .AppName {
   margin: 0.3rem;
   padding: 0.3rem;
   text-align: center;
-  font-size: calc(2rem + 2vmin);
+  font-size: calc(1.5rem + 2vmin);
   color: var(--primary-color-dark);
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  text-shadow: 0.4rem 0.1rem 0.1rem rgba(0, 0, 0, 0.123);
+  text-shadow: 0.2rem 0.1rem 0.1rem rgba(0, 0, 0, 0.123);
+  word-wrap: break-word;
 }
 
-@media screen and (min-width: 200px) {
-  .container {
-    width: 100%;
+@media (min-width: 768px) {
+  .AppName {
+    font-size: calc(2rem + 2vmin);
+    text-shadow: 0.4rem 0.1rem 0.1rem rgba(0, 0, 0, 0.123);
   }
+}
+
+.container {
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
 }
 
 .logoutbutton {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   background-color: var(--primary-color-dark);
   box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.123);
   color: var(--primary-color-white);
   border: solid #151826 1px;
   border-radius: 2rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  z-index: 1000;
+}
+
+@media (min-width: 768px) {
+  .logoutbutton {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+}
+
+.logoutbutton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile optimizations */
+@media (max-width: 767px) {
+  .container {
+    padding-top: 4rem; /* Space for logout button */
+  }
+
+  .logoutbutton {
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
 }

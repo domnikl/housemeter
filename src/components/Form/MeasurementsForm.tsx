@@ -43,29 +43,31 @@ export default function MeasurementsForm(props: MeasurementsFormProps) {
       onSubmit={submitHandler}
       data-testid="form"
     >
-      <label htmlFor="Date" className={classes.lable}>
-        Date
-      </label>
-      <div>
-        <input
-          data-testid="inputDate"
-          type="date"
-          name="date"
-          value={inputDate.value}
-          className={classes.inputDate}
-          onChange={inputDate.valueChangeHandler}
-          onBlur={inputDate.inputBlurHandler}
-        />
-        {inputDate.hasError && (
-          <p className={classes.invalid}>Please input a valid date.</p>
-        )}
+      <div className={classes.formRow}>
+        <label htmlFor="Date" className={classes.formLabel}>
+          Date
+        </label>
+        <div className={classes.formInput}>
+          <input
+            data-testid="inputDate"
+            type="date"
+            name="date"
+            value={inputDate.value}
+            className={classes.inputDate}
+            onChange={inputDate.valueChangeHandler}
+            onBlur={inputDate.inputBlurHandler}
+          />
+          {inputDate.hasError && (
+            <p className={classes.invalid}>Please input a valid date.</p>
+          )}
+        </div>
       </div>
 
-      <label htmlFor="lableType" className={classes.lable}>
-        Type
-      </label>
-      <div>
-        <div className={classes.selectcontainer}>
+      <div className={classes.formRow}>
+        <label htmlFor="lableType" className={classes.formLabel}>
+          Type
+        </label>
+        <div className={classes.formInput}>
           <select
             data-testid="selectInputType"
             name="measurementsType"
@@ -78,37 +80,41 @@ export default function MeasurementsForm(props: MeasurementsFormProps) {
             <option value="Water">💧 Water</option>
             <option value="Gas">🔥 Gas</option>
           </select>
+          {inputType.hasError && (
+            <p className={classes.invalid}>Please input a valid type.</p>
+          )}
         </div>
-        {inputType.hasError && (
-          <p className={classes.invalid}>Please input a valid type.</p>
-        )}
       </div>
 
-      <label htmlFor="value" className={classes.label}>
-        Measurement
-      </label>
-      <div>
-        <input
-          className={classes.valueInput}
-          value={inputValue.value}
-          data-testid="inputfieldvalue"
-          type="number"
-          min={1}
-          onChange={inputValue.valueChangeHandler}
-          onBlur={inputValue.inputBlurHandler}
-        />
-        {inputValue.hasError && (
-          <p className={classes.invalid}>Please input a valid value.</p>
-        )}
+      <div className={classes.formRow}>
+        <label htmlFor="value" className={classes.formLabel}>
+          Measurement
+        </label>
+        <div className={classes.formInput}>
+          <input
+            className={classes.valueInput}
+            value={inputValue.value}
+            data-testid="inputfieldvalue"
+            type="number"
+            min={1}
+            onChange={inputValue.valueChangeHandler}
+            onBlur={inputValue.inputBlurHandler}
+          />
+          {inputValue.hasError && (
+            <p className={classes.invalid}>Please input a valid value.</p>
+          )}
+        </div>
       </div>
 
-      <button
-        type="submit"
-        className={classes.submitButton}
-        disabled={!formValidity}
-      >
-        Submit
-      </button>
+      <div className={classes.submitRow}>
+        <button
+          type="submit"
+          className={classes.submitButton}
+          disabled={!formValidity}
+        >
+          Submit
+        </button>
+      </div>
     </form>
   );
 }
