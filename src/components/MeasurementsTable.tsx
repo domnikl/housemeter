@@ -2,6 +2,7 @@ import classes from "./MeasurementsTable.module.css";
 import React, { useState, useEffect } from "react";
 import MeasurementsForm from "./Form/MeasurementsForm";
 import MeasurementsTableItem from "./MeasurementsTableItem";
+import UsageChart from "./UsageChart";
 import {
   addMeasurements,
   deleteMeasurements,
@@ -46,6 +47,8 @@ const MeasurementsTable = () => {
   return (
     <React.Fragment>
       <MeasurementsForm onAdd={measurementsHandleChange} />
+
+      <UsageChart measurements={measurementsList} />
 
       <table className={classes.wrappingContainer}>
         <thead>

@@ -24,7 +24,7 @@ const measurementTags: Record<MeasurementType, MeasurementTag> = {
     type: "Gas",
     label: "🔥 Gas",
     color: "#ffffff",
-    backgroundColor: "#45b7d1",
+    backgroundColor: "#e6b800",
   },
 };
 
