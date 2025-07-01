@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./MeasurementsTableItem.module.css";
-import { Measurement } from "../MeasurementInterface";
+import { Measurement, MeasurementType } from "../MeasurementInterface";
+import Tag from "./Tag";
 
 function formatValue(reading: Measurement) {
   const formattedValue = new Intl.NumberFormat("de-DE", {
@@ -32,7 +33,9 @@ const MeasurementsTableItem = (props: MeasurementsTableItemProps) => {
       <td className={classes.valueTable}>
         {new Intl.DateTimeFormat().format(new Date(props.item.date))}
       </td>
-      <td className={classes.valueTable}>{props.item.type}</td>
+      <td className={classes.valueTable}>
+        <Tag type={props.item.type as MeasurementType} />
+      </td>
       <td className={classes.valueTable}>
         {" "}
         {formatValue(props.item)}

@@ -7,10 +7,10 @@ import {
   deleteMeasurements,
   getMeasurements,
 } from "../SupabaseClient";
-import { Measurement } from "../MeasurementInterface";
+import { Measurement, MeasurementType } from "../MeasurementInterface";
 
 const MeasurementsTable = () => {
-  const [filter, setFilter] = useState<string | object>("");
+  const [filter, setFilter] = useState<MeasurementType | "">("");
   const [measurementsList, setMeasurementsList] = useState<Measurement[]>([]);
 
   const filteredReadings = measurementsList.filter(
@@ -55,13 +55,16 @@ const MeasurementsTable = () => {
               Type{" "}
               <select
                 className={classes.meterTypeSelect}
-                onChange={(e) => setFilter(e.target.value)}
+                onChange={(e) =>
+                  setFilter(e.target.value as MeasurementType | "")
+                }
+                value={filter}
               >
                 {" "}
-                <option></option>
-                <option value="Electricity">Electricity</option>
-                <option value="Water">Water</option>
-                <option value="Gas">Gas</option>
+                <option value="">All Types</option>
+                <option value="Electricity">⚡ Electricity</option>
+                <option value="Water">💧 Water</option>
+                <option value="Gas">🔥 Gas</option>
               </select>
             </th>
 

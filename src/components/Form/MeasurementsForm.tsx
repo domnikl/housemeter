@@ -1,7 +1,7 @@
 import classes from "./MeasurementsForm.module.css";
 import { v4 as uuidv4 } from "uuid";
 import useInput from "./useInput";
-import { Measurement } from "../../MeasurementInterface";
+import { Measurement, MeasurementType } from "../../MeasurementInterface";
 
 interface MeasurementsFormProps {
   onAdd: (measurement: Measurement) => void;
@@ -12,7 +12,7 @@ export default function MeasurementsForm(props: MeasurementsFormProps) {
   const inputType = useInput(
     (type) => type !== " " && ["Electricity", "Gas", "Water"].includes(type),
     "Electricity"
-  );
+  ) as { value: MeasurementType } & ReturnType<typeof useInput>;
   const inputDate = useInput(
     (date) => !isNaN(new Date(date).getTime()),
     new Date().toISOString().split("T")[0]
@@ -74,9 +74,9 @@ export default function MeasurementsForm(props: MeasurementsFormProps) {
             onChange={inputType.valueChangeHandler}
             onBlur={inputType.inputBlurHandler}
           >
-            <option value="Electricity">Electricity</option>
-            <option value="Water">Water</option>
-            <option value="Gas">Gas</option>
+            <option value="Electricity">⚡ Electricity</option>
+            <option value="Water">💧 Water</option>
+            <option value="Gas">🔥 Gas</option>
           </select>
         </div>
         {inputType.hasError && (

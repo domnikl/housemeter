@@ -17,6 +17,7 @@
 
 .valueTable {
   padding: 10px;
+  vertical-align: middle;
 }
 .deletebutton {
   margin-left: 1rem;
