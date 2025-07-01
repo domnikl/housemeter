@@ -1,39 +1,53 @@
 import classes from "./App.module.css";
 import React, { useEffect, useState } from "react";
 import MeasurementsTable from "./components/MeasurementsTable";
-import Login from "./Login";
-import { supabase } from "./SupabaseClient";
-import { User } from "@supabase/supabase-js";
-
-//TODO: supabase-js geht das in typescript - deps verändert - möglicher bug?
+import PasswordLogin from "./components/PasswordLogin";
+import { checkApiHealth, isAuthenticated } from "./ApiClient";
 
 function App() {
-  const [user, setUser] = useState<User | null>(null);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const session = supabase.auth.session();
-    setUser(session?.user ?? null);
-
-    const { data: authListener } = supabase.auth.onAuthStateChange(
-      async (_event, session) => {
-        setUser(session?.user ?? null);
-      }
-    );
-
-    return () => {
-      authListener?.unsubscribe();
-    };
+    // Check if user is already authenticated
+    if (isAuthenticated()) {
+      checkApiHealth()
+        .then((isHealthy) => {
+          setIsLoggedIn(isHealthy);
+          setIsLoading(false);
+        })
+        .catch(() => {
+          setIsLoggedIn(false);
+          setIsLoading(false);
+        });
+    } else {
+      setIsLoading(false);
+    }
   }, []);
 
-  async function handleLogout() {
-    await supabase.auth.signOut().catch(console.error);
-    setUser(null);
+  function handleLogin() {
+    setIsLoggedIn(true);
+  }
+
+  function handleLogout() {
+    sessionStorage.removeItem("housemeter_password");
+    setIsLoggedIn(false);
+  }
+
+  if (isLoading) {
+    return (
+      <div className={classes.container}>
+        <div style={{ textAlign: "center", padding: "2rem" }}>
+          <p>Loading...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
     <React.Fragment>
-      {!user ? (
-        <Login supabase={supabase} />
+      {!isLoggedIn ? (
+        <PasswordLogin onLogin={handleLogin} />
       ) : (
         <div className={classes.container}>
           <button onClick={handleLogout} className={classes.logoutbutton}>

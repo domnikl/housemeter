@@ -1,0 +1,65 @@
+version: "3.8"
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: housemeter-db
+    environment:
+      POSTGRES_DB: housemeter
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: housemeter_password
+    ports:
+      - "54329:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d housemeter"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - housemeter-network
+
+  # Backend API Server
+  backend:
+    image: ghcr.io/${GITHUB_REPOSITORY:-your-username/housemeter}/backend:latest
+    container_name: housemeter-backend
+    environment:
+      PORT: 3002
+      DB_USER: postgres
+      DB_HOST: postgres
+      DB_NAME: housemeter
+      DB_PASSWORD: housemeter_password
+      DB_PORT: 5432
+      APP_PASSWORD: ${APP_PASSWORD:-admin}
+    ports:
+      - "3002:3002"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - housemeter-network
+    restart: unless-stopped
+
+  # Frontend React App
+  frontend:
+    image: ghcr.io/${GITHUB_REPOSITORY:-your-username/housemeter}/frontend:latest
+    container_name: housemeter-frontend
+    environment:
+      REACT_APP_API_URL: http://localhost:3002/api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - housemeter-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  housemeter-network:
+    driver: bridge

@@ -7,7 +7,7 @@ import {
   addMeasurements,
   deleteMeasurements,
   getMeasurements,
-} from "../SupabaseClient";
+} from "../ApiClient";
 import { Measurement, MeasurementType } from "../MeasurementInterface";
 
 const MeasurementsTable = () => {
